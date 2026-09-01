@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vizard | Sophia Ke Portfolio</title>
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<style>
+@font-face{font-family:"Merriweather";src:url("assets/fonts/merriweather-700-latin.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Inclusive Sans";src:url("assets/fonts/inclusivesans-400-latin.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Inclusive Sans";src:url("assets/fonts/inclusivesans-500-latin.woff2") format("woff2");font-weight:500;font-display:swap}
+:root{--bg:#fff;--ink:#0a0a0a;--muted:#6b6b6b;--faint:#9a9a9a;--line:rgba(0,0,0,.12);--line-soft:rgba(0,0,0,.08);--pill:#0a0a0a;--pill-fg:#fff;--serif:"Merriweather",Georgia,serif;--sans:"Inclusive Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+header.nav{position:sticky;top:0;z-index:50;padding:16px 0;background:rgba(255,255,255,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-soft)}
+.nav-inner{max-width:1180px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:17px}
+.brand img{width:36px;height:36px;border-radius:50%;background:#0a0a0a;padding:6px}
+.pillnav{display:flex;gap:6px;background:rgba(0,0,0,.04);border:1px solid var(--line-soft);border-radius:999px;padding:6px}
+.pillnav a{padding:8px 18px;border-radius:999px;font-size:15px;color:var(--muted);transition:.2s}
+.pillnav a:hover{color:var(--ink)}.pillnav a.active{background:var(--pill);color:var(--pill-fg);font-weight:500}
+.nav-spacer{width:36px}
+.cs{max-width:1180px;margin:0 auto;padding:0 28px}
+.cs-head{padding:64px 0 26px}
+.cs-eyebrow{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);margin:0 0 16px}
+.cs-head h1{font-family:var(--serif);font-weight:700;font-size:clamp(38px,6vw,64px);line-height:1.05;letter-spacing:-.015em;margin:0}
+.cs-tagline{font-family:var(--serif);font-weight:700;font-size:clamp(20px,2.6vw,27px);line-height:1.3;margin:18px 0 0;color:var(--ink)}
+.cs-sub{color:var(--muted);font-size:18px;margin:16px 0 0}
+.cs-tags{color:var(--faint);font-size:14px;letter-spacing:.02em;margin:14px 0 0;text-transform:none}
+.hero-fig,.fig{border-radius:16px;overflow:hidden;border:1px solid var(--line-soft)}
+.hero-fig{margin:10px 0}
+.cs-wrap{display:grid;grid-template-columns:210px minmax(0,1fr);gap:64px;align-items:start;padding:40px 0 20px}
+.toc{position:sticky;top:96px}
+.toc-title{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin:0 0 16px}
+.toc ul{list-style:none;margin:0;padding:0;border-left:1px solid var(--line)}
+.toc a{display:block;padding:8px 0 8px 16px;margin-left:-1px;font-size:14.5px;color:var(--muted);border-left:2px solid transparent;transition:.15s}
+.toc a:hover{color:var(--ink)}
+.toc a.active{color:var(--ink);font-weight:500;border-left-color:var(--ink)}
+.cs-main{max-width:720px}
+.cs-sec{scroll-margin-top:96px;padding:36px 0 44px;border-top:1px solid var(--line)}
+.cs-sec:first-child{border-top:none;padding-top:8px}
+.sec-eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin:0 0 12px}
+.sec-h{font-family:var(--serif);font-weight:700;font-size:clamp(25px,3.2vw,33px);line-height:1.14;letter-spacing:-.01em;margin:0 0 20px}
+.cs-main p{margin:0 0 18px;color:#242424}
+.lead{font-size:19px;color:#141414;font-weight:500}
+.cs-main h4{font-size:18px;font-weight:600;margin:30px 0 10px}
+.eyebrow{font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin:0 0 8px}
+.flow{font-weight:500;color:var(--ink)}
+.pull{font-family:var(--serif);font-weight:700;font-size:23px;line-height:1.32;margin:24px 0;padding:6px 0 6px 22px;border-left:3px solid var(--ink);color:var(--ink)}
+/* from → to */
+.fromto{display:grid;gap:12px;margin:22px 0}
+.ft{display:flex;gap:14px;align-items:baseline;padding:16px 20px;border-radius:12px;border:1px solid var(--line-soft);font-size:16px}
+.ft-k{flex:none;width:52px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);padding-top:2px}
+.ft.from{color:var(--muted);background:#fafafa}
+.ft.to{color:var(--ink);border-color:var(--ink);font-weight:500}
+/* cards */
+.cards{display:grid;gap:14px;margin:20px 0}
+.cards-2{grid-template-columns:1fr 1fr}
+.cards-3{grid-template-columns:repeat(3,1fr)}
+.card{border:1px solid var(--line-soft);border-radius:14px;padding:20px}
+.card .card-k{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);margin:0 0 8px}
+.card .card-t{font-weight:600;font-size:16px;margin:0 0 6px}
+.card p{margin:0;color:#333;font-size:15px}
+/* step flow list */
+.stepflow{display:grid;gap:8px;margin:18px 0;padding:18px 20px;border-radius:12px;background:#fafafa;border:1px solid var(--line-soft)}
+.stepflow p{margin:0;font-weight:500;color:var(--ink);font-size:15.5px}
+/* chips row */
+.chips{color:var(--ink);font-weight:500;margin:16px 0}
+/* two column lists */
+.twocol{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin:22px 0}
+.twocol .col-k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin:0 0 10px}
+ul.list{margin:12px 0 18px;padding-left:20px}
+ul.list li{margin:0 0 9px;color:#2a2a2a}
+/* image / video placeholders */
+.fig.ph{aspect-ratio:16/6.6;display:grid;place-items:center;text-align:center;padding:24px;border:1px dashed rgba(0,0,0,.22);
+  background:repeating-linear-gradient(45deg,#f7f7f5,#f7f7f5 14px,#f1f1ef 14px,#f1f1ef 28px)}
+.hero-fig.ph{aspect-ratio:16/6.2}
+.ph-k{display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin-bottom:8px}
+.ph-t{color:#555;font-size:14.5px;max-width:56ch;margin:0 auto}
+.cs-foot{border-top:1px solid var(--line-soft);margin-top:20px;padding:32px 0 56px}
+.foot-inner{max-width:1180px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;gap:16px;color:var(--muted);font-size:14px}
+.foot-inner a:hover{color:var(--ink)}
+@media (max-width:980px){.cs-wrap{grid-template-columns:1fr;gap:0}.toc{display:none}.brand span{display:none}.nav-spacer{display:none}}
+@media (max-width:720px){.cards-2,.cards-3{grid-template-columns:1fr}.twocol{grid-template-columns:1fr}.fig.ph,.hero-fig.ph{aspect-ratio:16/9}}
+</style>
+</head>
+<body>
+
+<header class="nav"><div class="nav-inner"><a class="brand" href="index.html"><img src="assets/white-KE.png" alt="Sophia Ke"><span>Sophia&nbsp;Ke</span></a><nav class="pillnav"><a href="index.html" class="active">Work</a><a href="about.html">About</a><a href="assets/media/Yujia-Ke-Resume-2025.pdf" target="_blank" rel="noopener">Resume</a></nav><div class="nav-spacer"></div></div></header>
+
+<main class="cs">
+  <header class="cs-head">
+    <p class="cs-eyebrow">Case Study</p>
+    <h1>Vizard</h1>
+    <p class="cs-tagline">Streamlining Video Creation from Upload to Publish</p>
+    <p class="cs-sub">Redesigned Vizard's core creation journey for 3M+ users, helping creators turn long-form footage into publish-ready social clips with less manual editing and clearer control over AI.</p>
+    <p class="cs-tags">AI Video Platform · Creator Tools · End-to-End UX</p>
+  </header>
+
+  <figure class="hero-fig ph"><div><span class="ph-k">Image placeholder</span><span class="ph-t">End-to-end product demo: Upload → AI clips → Refine → Publish</span></div></figure>
+
+  <div class="cs-wrap">
+    <aside class="toc">
+      <p class="toc-title">On this page</p>
+      <ul>
+        <li><a href="#product-shift" data-sec="product-shift">The Product Shift</a></li>
+        <li><a href="#friction" data-sec="friction">Friction Points</a></li>
+        <li><a href="#show-value" data-sec="show-value">Show Value Early</a></li>
+        <li><a href="#latency" data-sec="latency">Designing for AI Latency</a></li>
+        <li><a href="#refine" data-sec="refine">Refine Without Re-Editing</a></li>
+        <li><a href="#business" data-sec="business">The Business Problem</a></li>
+        <li><a href="#intent" data-sec="intent">From Commands to Intent</a></li>
+        <li><a href="#impact" data-sec="impact">Impact</a></li>
+        <li><a href="#takeaway" data-sec="takeaway">Key Takeaway</a></li>
+      </ul>
+    </aside>
+
+    <div class="cs-main">
+
+      <section id="product-shift" class="cs-sec">
+        <p class="sec-eyebrow">The Product Shift</p>
+        <h2 class="sec-h">AI is changing the role of the video editor</h2>
+        <p>Instead of asking creators to manually find highlights, trim footage, remove silence, add captions, and format content for each platform, Vizard can automate much of that production work.</p>
+        <p>That shifted my core design question:</p>
+        <div class="fromto">
+          <div class="ft from"><span class="ft-k">From</span> How can we make editing faster?</div>
+          <div class="ft to"><span class="ft-k">To</span> What should AI decide — and what should remain in the creator's control?</div>
+        </div>
+        <p>I defined one principle to guide the redesign:</p>
+        <blockquote class="pull">AI does the editing. Creators make the decisions.</blockquote>
+        <div class="cards cards-2">
+          <div class="card"><p class="card-t">AI handles</p><p>Finding highlights, creating short clips, removing silence, generating captions, and reformatting content.</p></div>
+          <div class="card"><p class="card-t">Creators decide</p><p>Which clip is worth posting, what visual direction fits their content, whether the result feels right, and what ultimately gets published.</p></div>
+        </div>
+        <p>This became the foundation for redesigning the experience across <span class="flow">Upload → AI Processing → Review → Publish.</span></p>
+        <figure class="fig ph"><div><span class="ph-k">Image placeholder</span><span class="ph-t">Before vs. AI-native workflow / AI vs. Creator decision map</span></div></figure>
+      </section>
+
+      <section id="friction" class="cs-sec">
+        <p class="sec-eyebrow">Where Users Were Dropping Off</p>
+        <h2 class="sec-h">Friction at three critical moments in the journey</h2>
+        <p>Product data and user feedback revealed friction at three key moments in the creation journey.</p>
+        <div class="cards cards-3">
+          <div class="card"><p class="card-k">Before AI creation</p><p>Uploading long-form footage took time, but users had little idea what the final result would look like.</p></div>
+          <div class="card"><p class="card-k">While AI was working</p><p>Processing introduced another waiting period with limited visibility into what was happening.</p></div>
+          <div class="card"><p class="card-k">After clips were generated</p><p>Creators wanted to make quick changes without opening a full video editor.</p></div>
+        </div>
+        <p>Rather than adding more editing features, I focused on improving these three moments.</p>
+        <figure class="fig ph"><div><span class="ph-k">Image placeholder</span><span class="ph-t">User journey showing the three key friction points</span></div></figure>
+      </section>
+
+      <section id="show-value" class="cs-sec">
+        <p class="sec-eyebrow">01</p>
+        <h2 class="sec-h">Show value before the result</h2>
+        <p>The original experience asked users to upload a long video and wait before seeing any meaningful output. That meant we were asking for commitment before demonstrating product value.</p>
+        <p>I introduced visual template selection during upload, allowing creators to preview different editing styles while their footage was still uploading.</p>
+        <p>The experience changed:</p>
+        <div class="fromto">
+          <div class="ft from"><span class="ft-k">From</span> Upload and wait → See what AI gives me</div>
+          <div class="ft to"><span class="ft-k">To</span> Upload → Express intent → Let AI create</div>
+        </div>
+        <p>Instead of treating upload as dead time, it became the first creative decision in the workflow.</p>
+        <figure class="fig ph"><div><span class="ph-k">Video placeholder</span><span class="ph-t">Video demo: Upload flow with real-time template preview and selection</span></div></figure>
+      </section>
+
+      <section id="latency" class="cs-sec">
+        <p class="sec-eyebrow">02</p>
+        <h2 class="sec-h">Design around AI latency</h2>
+        <p>AI processing could take several minutes for long-form footage. Instead of treating that delay as a generic loading state, I designed different experiences around user intent.</p>
+        <div class="cards cards-2">
+          <div class="card"><p class="card-t">Returning users</p><p>Could leave the page and receive an email when their clips were ready.</p></div>
+          <div class="card"><p class="card-t">New users</p><p>Could stay and learn what the AI was doing through lightweight onboarding and product education.</p></div>
+        </div>
+        <p>The goal wasn't to hide AI latency. It was to make the waiting time feel intentional.</p>
+        <figure class="fig ph"><div><span class="ph-k">Image placeholder</span><span class="ph-t">Processing experience: returning user vs. new user</span></div></figure>
+      </section>
+
+      <section id="refine" class="cs-sec">
+        <p class="sec-eyebrow">03</p>
+        <h2 class="sec-h">Let creators refine without re-editing</h2>
+        <p>Once AI generated the clips, creators still wanted control over the final result. But user feedback showed that many changes were lightweight:</p>
+        <p class="chips">Remove silence · Add emojis · Change template · Apply enhancements</p>
+        <p>Opening a full editor for these actions created unnecessary friction. I introduced a <strong>Quick AI Edit</strong> panel directly on the clip result page, allowing creators to refine a clip without leaving the review and publishing workflow.</p>
+        <p><span class="flow">Review → Refine → Publish</span></p>
+        <figure class="fig ph"><div><span class="ph-k">Video placeholder</span><span class="ph-t">Video demo: Quick AI Edit panel on the clip result page</span></div></figure>
+      </section>
+
+      <section id="business" class="cs-sec">
+        <p class="sec-eyebrow">The Business Problem</p>
+        <h2 class="sec-h">V1 worked for users — but created a new business problem</h2>
+        <p>After launching the first redesign through a grayscale A/B test, we discovered an unexpected behavior. Users tended to make AI edits one at a time:</p>
+        <div class="stepflow">
+          <p>Remove silence → Generate</p>
+          <p>Add emojis → Generate</p>
+          <p>Change template → Generate</p>
+        </div>
+        <p>From the user's perspective, this interaction felt natural. But every submission triggered another AI request. The interface was unintentionally encouraging behavior that increased model usage and processing cost.</p>
+        <p>This changed the problem from a pure UX challenge into a product and business tradeoff:</p>
+        <blockquote class="pull">How might we preserve creator control without encouraging unnecessary AI generations?</blockquote>
+        <figure class="fig ph"><div><span class="ph-k">Image placeholder</span><span class="ph-t">V1 behavior visualization: multiple edits triggering multiple AI requests</span></div></figure>
+      </section>
+
+      <section id="intent" class="cs-sec">
+        <p class="sec-eyebrow">The V2 Redesign</p>
+        <h2 class="sec-h">From repeated commands to intent collection</h2>
+        <p>The problem wasn't the feature set. It was the interaction model.</p>
+        <p>For V2, I redesigned the panel around <strong>intent collection</strong>. Instead of submitting every change independently, creators could select multiple adjustments first and apply them together.</p>
+        <div class="fromto">
+          <div class="ft from"><span class="ft-k">Before</span> Change → Generate → Change → Generate → Change → Generate</div>
+          <div class="ft to"><span class="ft-k">After</span> Configure multiple changes → Generate once</div>
+        </div>
+        <p>A small interaction change created an important shift. The interface now encouraged users to communicate their full editing intent before asking AI to act — preserving flexibility for creators while reducing unnecessary model requests.</p>
+        <p>It also gave product, engineering, and design a shared framework for evaluating the solution:</p>
+        <p class="chips">User effort · Editing flexibility · AI cost</p>
+        <figure class="fig ph"><div><span class="ph-k">Image placeholder</span><span class="ph-t">V1 vs. V2 interaction comparison: repeated generations vs. batched intent</span></div></figure>
+      </section>
+
+      <section id="impact" class="cs-sec">
+        <p class="sec-eyebrow">Impact</p>
+        <h2 class="sec-h">Better for creators, more sustainable for the business</h2>
+        <div class="twocol">
+          <div>
+            <p class="col-k">For creators</p>
+            <ul class="list">
+              <li>Earlier visibility into what AI would create</li>
+              <li>Less uncertainty during long processing times</li>
+              <li>Faster lightweight editing without entering the full editor</li>
+              <li>More control over what ultimately gets published</li>
+            </ul>
+          </div>
+          <div>
+            <p class="col-k">For the business</p>
+            <ul class="list">
+              <li>Fewer unnecessary repeat AI generations</li>
+              <li>A more scalable interaction model for AI-assisted editing</li>
+              <li>Better alignment between user behavior and AI infrastructure</li>
+            </ul>
+          </div>
+        </div>
+        <figure class="fig ph"><div><span class="ph-k">Image placeholder</span><span class="ph-t">Final end-to-end redesigned workflow or before/after product experience</span></div></figure>
+      </section>
+
+      <section id="takeaway" class="cs-sec">
+        <p class="sec-eyebrow">Key Takeaway</p>
+        <h2 class="sec-h">Designing AI products isn't only about reducing clicks</h2>
+        <p>It requires deciding where AI should automate, where human judgment still matters, and how the interaction model affects both the user experience and the economics of the system.</p>
+        <p>For Vizard, that meant shifting the product from a traditional editor with AI features toward an <strong>AI-native workflow built around creator intent</strong>.</p>
+      </section>
+
+    </div>
+  </div>
+</main>
+
+<footer class="cs-foot"><div class="foot-inner"><span>Copyright © 2024 by Sophia Ke</span><a href="index.html">← Back to work</a></div></footer>
+
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.toc a'));
+  var map={}; links.forEach(function(a){map[a.getAttribute('data-sec')]=a;});
+  var secs=[].slice.call(document.querySelectorAll('.cs-sec'));
+  function absTop(el){return el.getBoundingClientRect().top+window.scrollY;}
+  function on(){var y=window.scrollY+140;var act=secs[0];secs.forEach(function(s){if(absTop(s)<=y)act=s;});links.forEach(function(a){a.classList.remove('active');});if(act&&map[act.id])map[act.id].classList.add('active');}
+  window.addEventListener('scroll',on,{passive:true});window.addEventListener('resize',on);on();
+  links.forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var el=document.getElementById(a.getAttribute('data-sec'));if(el)window.scrollTo({top:absTop(el)-88,behavior:'smooth'});});});
+})();
+</script>
+
+</body>
+</html>

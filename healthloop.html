@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HealthLoop | Sophia Ke Portfolio</title>
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<style>
+@font-face{font-family:"Merriweather";src:url("assets/fonts/merriweather-700-latin.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Inclusive Sans";src:url("assets/fonts/inclusivesans-400-latin.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Inclusive Sans";src:url("assets/fonts/inclusivesans-500-latin.woff2") format("woff2");font-weight:500;font-display:swap}
+:root{--bg:#fff;--ink:#0a0a0a;--muted:#6b6b6b;--faint:#9a9a9a;--line:rgba(0,0,0,.12);--line-soft:rgba(0,0,0,.08);--pill:#0a0a0a;--pill-fg:#fff;--serif:"Merriweather",Georgia,serif;--sans:"Inclusive Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+header.nav{position:sticky;top:0;z-index:50;padding:16px 0;background:rgba(255,255,255,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-soft)}
+.nav-inner{max-width:1180px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:17px}
+.brand img{width:36px;height:36px;border-radius:50%;background:#0a0a0a;padding:6px}
+.pillnav{display:flex;gap:6px;background:rgba(0,0,0,.04);border:1px solid var(--line-soft);border-radius:999px;padding:6px}
+.pillnav a{padding:8px 18px;border-radius:999px;font-size:15px;color:var(--muted);transition:.2s}
+.pillnav a:hover{color:var(--ink)}.pillnav a.active{background:var(--pill);color:var(--pill-fg);font-weight:500}
+.nav-spacer{width:36px}
+.cs{max-width:1180px;margin:0 auto;padding:0 28px}
+.cs-head{padding:64px 0 26px}
+.cs-eyebrow{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);margin:0 0 16px}
+.cs-head h1{font-family:var(--serif);font-weight:700;font-size:clamp(38px,6vw,64px);line-height:1.05;letter-spacing:-.015em;margin:0}
+.cs-tagline{font-family:var(--serif);font-weight:700;font-size:clamp(20px,2.6vw,27px);line-height:1.3;margin:18px 0 0;color:var(--ink)}
+.cs-sub{color:var(--muted);font-size:18px;margin:16px 0 0}
+.hero-fig{margin:8px 0;border-radius:16px;overflow:hidden;border:1px solid var(--line-soft)}
+.hero-fig img{width:100%}
+.cs-wrap{display:grid;grid-template-columns:210px minmax(0,1fr);gap:64px;align-items:start;padding:40px 0 20px}
+.toc{position:sticky;top:96px}
+.toc-title{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin:0 0 16px}
+.toc ul{list-style:none;margin:0;padding:0;border-left:1px solid var(--line)}
+.toc a{display:block;padding:8px 0 8px 16px;margin-left:-1px;font-size:14.5px;color:var(--muted);border-left:2px solid transparent;transition:.15s}
+.toc a:hover{color:var(--ink)}
+.toc a.active{color:var(--ink);font-weight:500;border-left-color:var(--ink)}
+.cs-main{max-width:720px}
+.cs-sec{scroll-margin-top:96px;padding:36px 0 44px;border-top:1px solid var(--line)}
+.cs-sec:first-child{border-top:none;padding-top:8px}
+.sec-eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin:0 0 12px}
+.sec-h{font-family:var(--serif);font-weight:700;font-size:clamp(25px,3.2vw,33px);line-height:1.14;letter-spacing:-.01em;margin:0 0 20px}
+.cs-main p{margin:0 0 18px;color:#242424}
+.lead{font-size:19px;color:#1a1a1a}
+.cs-main h3.q{font-family:var(--serif);font-weight:700;font-size:22px;line-height:1.28;margin:30px 0 14px}
+.cs-main h4{font-size:18px;font-weight:600;margin:30px 0 10px}
+.eyebrow{font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin:30px 0 4px}
+.flow{font-weight:500;color:var(--ink)}
+.pull{font-family:var(--serif);font-weight:700;font-size:24px;line-height:1.35;margin:24px 0;padding:6px 0 6px 22px;border-left:3px solid var(--ink);color:var(--ink)}
+.meta{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:26px 0 8px;padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.meta-label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:8px}
+.meta-val{font-size:15px;color:#242424;margin-bottom:3px}
+.fig{margin:20px 0;border-radius:14px;overflow:hidden;border:1px solid var(--line-soft);background:#fafafa}
+.fig img{width:100%}
+.imgrow{display:grid;gap:14px;margin:20px 0}
+.imgrow.n3{grid-template-columns:repeat(3,1fr)}
+.imgrow.n4{grid-template-columns:repeat(4,1fr)}
+.imgrow .fig{margin:0}
+.cards{display:grid;gap:14px;margin:20px 0}
+.cards-3{grid-template-columns:repeat(3,1fr)}
+.card{border:1px solid var(--line-soft);border-radius:14px;padding:20px}
+.card .card-k{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);margin:0 0 8px}
+.card .card-t{font-weight:600;font-size:16px;margin:0 0 6px}
+.card p{margin:0;color:#333;font-size:15px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:22px 0}
+.stat{border:1px solid var(--line-soft);border-radius:14px;padding:24px}
+.stat .num{font-family:var(--serif);font-weight:700;font-size:46px;line-height:1;margin:0 0 8px}
+.stat .stat-label{font-weight:600;margin:0 0 8px}
+.stat p{margin:0;color:#333;font-size:15px}
+.persona{display:grid;grid-template-columns:130px 1fr;gap:26px;align-items:start;margin:16px 0 22px;padding:24px;border:1px solid var(--line-soft);border-radius:16px}
+.persona img{width:130px;height:130px;border-radius:12px;object-fit:cover;border:1px solid var(--line-soft)}
+.persona .p-name{font-family:var(--serif);font-weight:700;font-size:22px;margin:0 0 8px}
+.persona .p-meta{color:var(--muted);font-size:14.5px;margin:0 0 4px}
+.persona .p-quote{font-style:italic;color:#2a2a2a;margin:14px 0 0}
+.twocol{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin:22px 0}
+.twocol .col-k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin:0 0 10px}
+ul.list{margin:14px 0 18px;padding-left:20px}
+ul.list li{margin:0 0 9px;color:#2a2a2a}
+.principle{padding:20px 0;border-top:1px solid var(--line-soft)}
+.principle .card-t{font-family:var(--serif);font-size:19px;font-weight:700;margin:0 0 6px}
+.principle p{margin:0}
+.cs-foot{border-top:1px solid var(--line-soft);margin-top:20px;padding:32px 0 56px}
+.foot-inner{max-width:1180px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;gap:16px;color:var(--muted);font-size:14px}
+.foot-inner a:hover{color:var(--ink)}
+@media (max-width:980px){.cs-wrap{grid-template-columns:1fr;gap:0}.toc{display:none}.brand span{display:none}.nav-spacer{display:none}}
+@media (max-width:720px){.cards-3{grid-template-columns:1fr}.stats{grid-template-columns:1fr}.twocol{grid-template-columns:1fr}.persona{grid-template-columns:1fr}.persona img{width:110px;height:110px}.imgrow.n3,.imgrow.n4{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<header class="nav"><div class="nav-inner"><a class="brand" href="index.html"><img src="assets/white-KE.png" alt="Sophia Ke"><span>Sophia&nbsp;Ke</span></a><nav class="pillnav"><a href="index.html" class="active">Work</a><a href="about.html">About</a><a href="assets/media/Yujia-Ke-Resume-2025.pdf" target="_blank" rel="noopener">Resume</a></nav><div class="nav-spacer"></div></div></header>
+
+<main class="cs">
+  <header class="cs-head">
+    <p class="cs-eyebrow">Case Study</p>
+    <h1>HealthLoop</h1>
+    <p class="cs-tagline">Keeping chronic-care patients connected to care when hospitals became inaccessible</p>
+    <p class="cs-sub">A telemedicine experience that helped older adults with chronic conditions access doctors, community health-check equipment, and ongoing health monitoring during the COVID-19 lockdown.</p>
+  </header>
+
+  <figure class="hero-fig"><img src="assets/media/d41ceb-e3ec6b9a363e440594f1ef008_1wy5tw2.jpg" alt="HealthLoop cover"></figure>
+
+  <div class="cs-wrap">
+    <aside class="toc">
+      <p class="toc-title">On this page</p>
+      <ul>
+        <li><a href="#overview" data-sec="overview">Overview</a></li>
+        <li><a href="#problem" data-sec="problem">Problem</a></li>
+        <li><a href="#research" data-sec="research">User Research</a></li>
+        <li><a href="#background" data-sec="background">Background</a></li>
+        <li><a href="#target-user" data-sec="target-user">Target User</a></li>
+        <li><a href="#design-goal" data-sec="design-goal">Design Goal</a></li>
+        <li><a href="#design-concept" data-sec="design-concept">Design Concept</a></li>
+        <li><a href="#solution" data-sec="solution">Solution</a></li>
+        <li><a href="#final-design" data-sec="final-design">Final Design</a></li>
+        <li><a href="#testing" data-sec="testing">User Testing</a></li>
+        <li><a href="#takeaways" data-sec="takeaways">Takeaways</a></li>
+      </ul>
+    </aside>
+
+    <div class="cs-main">
+
+      <section id="overview" class="cs-sec">
+        <p class="sec-eyebrow">Overview</p>
+        <h2 class="sec-h">When routine healthcare suddenly became inaccessible</h2>
+        <p class="lead">During Shanghai's COVID-19 lockdown, older adults managing chronic conditions faced a difficult reality: their need for regular care had not changed, but their ability to access it had.</p>
+        <p>Hospitals were overwhelmed, movement was restricted, and many patients lacked the medical equipment needed to monitor their conditions at home.</p>
+        <p>TangNing, a Shanghai-based healthcare company, launched HealthLoop to bridge this gap through virtual consultations and community-based health hubs.</p>
+        <p>As a full-time product designer on a six-person cross-functional team, I worked across user research, UX strategy, interaction design, and UI design to turn an unfamiliar telehealth experience into something older adults could confidently navigate.</p>
+        <div class="meta">
+          <div class="meta-col"><div class="meta-label">Role</div><div class="meta-val">User Research · UX/UI Design · Design System</div></div>
+          <div class="meta-col"><div class="meta-label">Team</div><div class="meta-val">2 UX/UI Designers</div><div class="meta-val">1 Product Manager</div><div class="meta-val">3 Developers</div></div>
+          <div class="meta-col"><div class="meta-label">Timeline</div><div class="meta-val">March–September 2021 · 6 months</div></div>
+        </div>
+      </section>
+
+      <section id="problem" class="cs-sec">
+        <p class="sec-eyebrow">Problem</p>
+        <h2 class="sec-h">Chronic care couldn't wait for the lockdown to end</h2>
+        <p>For patients living with cardiovascular disease, diabetes, and other chronic conditions, regular monitoring isn't optional.</p>
+        <p>But during lockdown, many older adults could no longer visit hospitals for routine check-ups. At the same time, they often lacked blood pressure monitors, blood oxygen meters, and other equipment at home.</p>
+        <p>The challenge wasn't simply to put doctor appointments online. We had to redesign an entire care journey around the constraints of lockdown—while making it understandable to older adults who may have limited experience with digital healthcare.</p>
+        <h3 class="q">The challenge — how could we maintain continuity of care without requiring patients to visit a hospital?</h3>
+        <p>This meant solving three connected problems:</p>
+        <div class="cards cards-3">
+          <div class="card"><p class="card-t">Access</p><p>Help patients reach doctors without traveling to a hospital.</p></div>
+          <div class="card"><p class="card-t">Monitoring</p><p>Give patients access to the equipment needed to monitor chronic conditions.</p></div>
+          <div class="card"><p class="card-t">Usability</p><p>Make the experience simple enough for older adults to navigate independently—or with help when needed.</p></div>
+        </div>
+        <h4>Impact — from a 30-minute process to a 3-minute booking experience</h4>
+        <div class="stats">
+          <div class="stat"><div class="num">96%</div><div class="stat-label">Positive user feedback</div><p>Users reported feeling confident navigating the experience and found the health visualizations useful for monitoring their conditions.</p></div>
+          <div class="stat"><div class="num">85%</div><div class="stat-label">Faster appointment booking</div><p>We reduced the appointment-booking journey from approximately 30 minutes to 3 minutes by simplifying the flow and making virtual care accessible directly from the home screen.</p></div>
+        </div>
+        <p>The redesigned experience connected three previously fragmented parts of chronic care: <span class="flow">Book a doctor → access nearby medical equipment → monitor health over time.</span></p>
+      </section>
+
+      <section id="research" class="cs-sec">
+        <p class="sec-eyebrow">User Research</p>
+        <h2 class="sec-h">Before designing telehealth, I needed to understand how patients actually received care</h2>
+        <p>Healthcare presented a challenge I couldn't solve from assumptions alone.</p>
+        <p>I was designing for older adults managing real medical conditions, within workflows shaped by doctors, hospitals, family caregivers, and physical health-check equipment. So before designing screens, I studied the existing care journey.</p>
+        <h4>Observing the real-world healthcare experience</h4>
+        <p>I conducted a field study of the hospital journey to understand what happened before, during, and after a chronic-care visit. I looked beyond individual screens and documented the broader service experience:</p>
+        <ul class="list">
+          <li>Where do patients get information?</li>
+          <li>Which decisions require assistance?</li>
+          <li>What equipment is involved?</li>
+          <li>Where does waiting or uncertainty occur?</li>
+        </ul>
+        <p>This helped me understand that HealthLoop wasn't simply replacing a hospital appointment with a video call. We were translating a physical healthcare system into a hybrid digital + community experience.</p>
+        <figure class="fig"><img src="assets/media/observation-3_fhj61n.png" alt="Field study of the hospital journey" loading="lazy"></figure>
+        <h4>Turning 25 patient interviews into actionable design priorities</h4>
+        <p>When I joined the project, the team had already conducted interviews with 25 older adults living with chronic conditions. Rather than treating those interviews as background documentation, I synthesized the findings to understand the recurring barriers that could prevent adoption.</p>
+        <p>Three needs consistently surfaced:</p>
+        <div class="cards cards-3">
+          <div class="card"><p class="card-k">01</p><p class="card-t">Access to medical equipment</p><p>Many participants didn't own the devices required to monitor their conditions at home.</p></div>
+          <div class="card"><p class="card-k">02</p><p class="card-t">A safer alternative to hospital visits</p><p>Patients needed continued care but were concerned about exposure and overwhelmed hospitals.</p></div>
+          <div class="card"><p class="card-k">03</p><p class="card-t">A simpler way to navigate healthcare</p><p>Booking, monitoring, and follow-up needed to feel manageable for older adults with varying levels of digital literacy.</p></div>
+        </div>
+        <p>These findings shifted our product direction from simply providing telemedicine toward creating a connected chronic-care ecosystem.</p>
+        <figure class="fig"><img src="assets/media/frame-43372_v0ofk0.png" alt="Interview synthesis" loading="lazy"></figure>
+      </section>
+
+      <section id="background" class="cs-sec">
+        <p class="sec-eyebrow">Background</p>
+        <h2 class="sec-h">Telehealth solved only half of the problem</h2>
+        <p>During lockdown, remote consultation became essential for chronic disease management. But a video call alone couldn't measure someone's blood pressure, oxygen level, or other essential health indicators.</p>
+        <p>This created an important service gap: patients could access doctors remotely—but not necessarily the medical equipment their doctors depended on.</p>
+        <p>Community HealthLoop hubs became the bridge between the two. Patients could remain close to home while accessing dedicated health-monitoring equipment and connecting virtually with medical professionals.</p>
+        <figure class="fig"><img src="assets/media/frame-43370-1_mwqzlx.png" alt="Community HealthLoop hubs" loading="lazy"></figure>
+        <h4>Designing within real-world constraints</h4>
+        <p>We had six months, a six-person team, and a limited implementation budget to move from research to a testable high-fidelity product. That meant I couldn't solve every possible healthcare problem.</p>
+        <p>I needed to prioritize the moments that had the greatest impact on whether patients could successfully receive care: <span class="flow">Finding care → booking care → completing care → understanding what happens next.</span></p>
+        <p>I worked closely with product and engineering to balance accessibility, business requirements, and implementation complexity, turning the initial product scope into a focused MVP that we could prototype and validate.</p>
+        <figure class="fig"><img src="assets/media/timeline_4akj7q.png" alt="Project timeline" loading="lazy"></figure>
+      </section>
+
+      <section id="target-user" class="cs-sec">
+        <p class="sec-eyebrow">Target User</p>
+        <h2 class="sec-h">Meet Ming: managing a chronic condition without the tools to monitor it</h2>
+        <div class="persona">
+          <img src="assets/media/persona-healthloop_1r3oyuc.jpg" alt="Ming Lee">
+          <div>
+            <p class="p-name">Ming Lee</p>
+            <p class="p-meta">Age: 69</p>
+            <p class="p-meta">Location: Shanghai</p>
+            <p class="p-meta">Medical history: Cardiovascular disease, diabetes</p>
+            <p class="p-quote">“I need to monitor my heart condition, but I don't have health-monitoring equipment at home—and I don't want to risk visiting an overcrowded hospital.”</p>
+          </div>
+        </div>
+        <div class="twocol">
+          <div>
+            <p class="col-k">Pain points</p>
+            <ul class="list">
+              <li>Doesn't own essential monitoring equipment such as blood pressure or blood oxygen devices.</li>
+              <li>Needs regular chronic-care monitoring despite lockdown restrictions.</li>
+              <li>Avoids hospitals because of infection risk and overcrowding.</li>
+              <li>May need assistance navigating unfamiliar healthcare technology.</li>
+            </ul>
+          </div>
+          <div>
+            <p class="col-k">Goals</p>
+            <ul class="list">
+              <li>Monitor important health metrics safely.</li>
+              <li>Access medical equipment close to home.</li>
+              <li>Speak with a doctor without visiting a hospital.</li>
+              <li>Understand changes in his health without interpreting complicated medical data.</li>
+            </ul>
+          </div>
+        </div>
+        <h4>Connecting digital healthcare with physical care</h4>
+        <h3 class="q">What happens when telehealth isn't enough?</h3>
+        <p>One of the most important insights was that remote care couldn't be entirely remote. When patients needed medical equipment, HealthLoop helped them locate a nearby community health hub and reserve a visit.</p>
+        <p>At the hub, patients could use dedicated chronic-care monitoring equipment and consult a doctor virtually. For appointments that didn't require equipment, they could connect with a doctor directly from their phone.</p>
+        <p>This created a flexible care model: <span class="flow">At home when possible. Nearby when necessary. Hospital only when needed.</span></p>
+        <div class="imgrow n3">
+          <figure class="fig"><img src="assets/media/checkin-from-outside_yzxy58.png" alt="Check in from outside" loading="lazy"></figure>
+          <figure class="fig"><img src="assets/media/interior-healthcheck_1k3knhu.png" alt="Interior health check" loading="lazy"></figure>
+          <figure class="fig"><img src="assets/media/interior-virtual-face-time-with-_8loucp.png" alt="Virtual consultation at hub" loading="lazy"></figure>
+        </div>
+      </section>
+
+      <section id="design-goal" class="cs-sec">
+        <p class="sec-eyebrow">Design Goal</p>
+        <h2 class="sec-h">How might we make chronic care accessible without making older adults learn an entirely new healthcare system?</h2>
+        <p>Our goal became: help older adults with chronic conditions access doctors, essential health-monitoring equipment, and understandable health information—without requiring frequent hospital visits.</p>
+        <p>Three design principles guided the experience:</p>
+        <ul class="list">
+          <li>Make the next action obvious.</li>
+          <li>Reduce the number of decisions required to receive care.</li>
+          <li>Keep health information understandable and actionable.</li>
+        </ul>
+      </section>
+
+      <section id="design-concept" class="cs-sec">
+        <p class="sec-eyebrow">Design Concept</p>
+        <h2 class="sec-h">Designing around what patients need to do—not what the system can do</h2>
+        <p>The platform supported many capabilities, but exposing all of them equally would increase cognitive load for older users. I reorganized the information architecture around three primary jobs:</p>
+        <div class="cards cards-3">
+          <div class="card"><p class="card-t">Talk to a doctor</p><p>Book and manage virtual appointments.</p></div>
+          <div class="card"><p class="card-t">Get a health check</p><p>Find a nearby HealthLoop hub with the necessary equipment.</p></div>
+          <div class="card"><p class="card-t">Understand my health</p><p>Track important metrics and changes over time.</p></div>
+        </div>
+        <p>This hierarchy shaped the site map and allowed the homepage to prioritize the most time-sensitive action: getting care.</p>
+        <figure class="fig"><img src="assets/media/healthloop-site-map_mkn0cp.jpg" alt="Site map" loading="lazy"></figure>
+        <h4>Turning research into design decisions</h4>
+        <p>Rather than adding more functionality, I focused on removing friction from the moments that mattered most. The research translated into three core design decisions:</p>
+        <div class="cards cards-3">
+          <div class="card"><p class="card-t">Fewer steps to care</p><p>Surface appointment booking prominently and guide users through one decision at a time.</p></div>
+          <div class="card"><p class="card-t">Bridge digital and physical healthcare</p><p>Make nearby HealthLoop hubs discoverable through a simple location-based experience.</p></div>
+          <div class="card"><p class="card-t">Make medical data understandable</p><p>Translate health measurements into visual trends instead of presenting users with isolated numbers.</p></div>
+        </div>
+        <figure class="fig"><img src="assets/media/frame-43373_tk6o50.png" alt="Design decisions" loading="lazy"></figure>
+      </section>
+
+      <section id="solution" class="cs-sec">
+        <p class="sec-eyebrow">Solution</p>
+        <h2 class="sec-h">One experience connecting doctors, community care, and everyday health monitoring</h2>
+        <p>HealthLoop brings three parts of chronic disease management into a single experience:</p>
+        <ul class="list">
+          <li>Book a virtual doctor appointment</li>
+          <li>Find nearby HealthLoop hubs for equipment-assisted check-ups</li>
+          <li>Monitor important health metrics over time</li>
+        </ul>
+
+        <p class="eyebrow">Design Highlight 01</p>
+        <h3 class="q">Making a doctor appointment feel straightforward</h3>
+        <p>For an older patient, every additional field, choice, and unfamiliar interaction can become a reason to abandon the process. I designed the booking experience as a guided sequence: <span class="flow">Choose a doctor → choose a time → confirm.</span></p>
+        <p>The home screen provides an obvious entry point, while each subsequent screen asks users to make only the decision required at that moment. The result was a booking flow that reduced the process from approximately 30 minutes to 3 minutes.</p>
+
+        <p class="eyebrow">Design Highlight 02</p>
+        <h3 class="q">Bringing medical equipment closer to the patient</h3>
+        <p>Virtual consultations solved access to doctors—but not access to medical devices. I designed a location-based HealthHub experience that lets patients find nearby facilities through either a map or list view, while surfacing the information needed to make a decision: <span class="flow">Distance · Available services · Directions · Facility information.</span></p>
+        <p>Instead of forcing patients to choose between “online” and “in person,” HealthLoop connects the two into one continuous care journey.</p>
+
+        <p class="eyebrow">Design Highlight 03</p>
+        <h3 class="q">Turning health measurements into something patients can understand</h3>
+        <p>Individual readings mean little without context. The health dashboard brings metrics such as blood sugar and blood oxygen into one place and emphasizes changes and trends over time, helping patients understand whether their condition is stable or changing.</p>
+        <p>The goal wasn't to replace medical interpretation. It was to help patients arrive at their next conversation with a doctor better informed about their own health.</p>
+      </section>
+
+      <section id="final-design" class="cs-sec">
+        <p class="sec-eyebrow">Final Design</p>
+        <h2 class="sec-h">High-fidelity prototype</h2>
+        <h4>Booking a virtual doctor appointment</h4>
+        <ul class="list">
+          <li>Start from a prominent appointment CTA</li>
+          <li>Review available care options</li>
+          <li>Understand the doctor's information</li>
+          <li>Choose a date and time</li>
+        </ul>
+        <div class="imgrow n4">
+          <figure class="fig"><img src="assets/media/1-home-1_1m29b7h.png" alt="Home CTA" loading="lazy"></figure>
+          <figure class="fig"><img src="assets/media/28-light-my-favorite-doctor_1136gio.png" alt="Care options" loading="lazy"></figure>
+          <figure class="fig"><img src="assets/media/35-light-doctor-details_yxsgt7.png" alt="Doctor details" loading="lazy"></figure>
+          <figure class="fig"><img src="assets/media/38-light-book-appointment-filled_v0plbw.png" alt="Select date and time" loading="lazy"></figure>
+        </div>
+        <h4>Designing for when plans change</h4>
+        <p>Healthcare journeys rarely follow a perfect path. I also designed the surrounding appointment states so patients could recover from changes without restarting the process.</p>
+        <ul class="list">
+          <li>Tell us why you need to reschedule</li>
+          <li>Choose another time</li>
+          <li>Confirm the new appointment</li>
+          <li>Cancel when rescheduling isn't possible</li>
+        </ul>
+        <div class="imgrow n4">
+          <figure class="fig"><img src="assets/media/52-light-select-reason-for-resch_qs93b4.png" alt="Reschedule reason" loading="lazy"></figure>
+          <figure class="fig"><img src="assets/media/53-light-select-reschedule-appoi_a60ma5.png" alt="Choose another time" loading="lazy"></figure>
+          <figure class="fig"><img src="assets/media/54-light-reschedule-appointment-_fv6adt.png" alt="Confirm new appointment" loading="lazy"></figure>
+          <figure class="fig"><img src="assets/media/55-light-cancel-appointment-conf_1f2dr9k.png" alt="Cancel appointment" loading="lazy"></figure>
+        </div>
+        <h4>Designing the full appointment journey</h4>
+        <p>What happens after users tap “Book”? I designed beyond the booking confirmation to make the entire virtual-care journey predictable: <span class="flow">Upcoming appointment → Video consultation → Session completion → Feedback.</span></p>
+        <p>Reducing uncertainty before and after the call was particularly important for users encountering telemedicine for the first time.</p>
+        <div class="imgrow n4">
+          <figure class="fig"><img src="assets/media/74-light-my-appointment-video-ca_vw0k1o.png" alt="Upcoming appointment" loading="lazy"></figure>
+          <figure class="fig"><img src="assets/media/76-light-video-call_1reps3t.png" alt="Video consultation" loading="lazy"></figure>
+          <figure class="fig"><img src="assets/media/77-light-session-ended-1_19ruzrx.png" alt="Session completion" loading="lazy"></figure>
+          <figure class="fig"><img src="assets/media/68-light-leave-a-review-filled-f_12411cn.png" alt="Feedback" loading="lazy"></figure>
+        </div>
+      </section>
+
+      <section id="testing" class="cs-sec">
+        <p class="sec-eyebrow">User Testing</p>
+        <h2 class="sec-h">The test that changed how I thought about the “user”</h2>
+        <p>We tested the high-fidelity prototype with six participants, measuring task completion and observing where users hesitated or needed assistance. Most of the core flows performed as expected.</p>
+        <p>But one 75-year-old participant revealed something our happy-path experience had missed. He repeatedly mentioned relying on his daughter to manage medical tasks.</p>
+        <figure class="fig"><img src="assets/media/old-asian-man-with-glasses-white_nnjbr6.jpg" alt="User testing participant" loading="lazy"></figure>
+        <blockquote class="pull">“My daughter often assists me with my medical issues, so I want to keep her updated.”</blockquote>
+        <p>This changed the way I framed the problem. The patient wasn't always the only user of the healthcare journey. For some older adults, healthcare is managed collaboratively with children or caregivers.</p>
+        <p>That meant designing only for independent patient use left an important edge case unresolved.</p>
+        <h4>From edge case to product opportunity</h4>
+        <h3 class="q">Designing for the support system around the patient</h3>
+        <p>Instead of treating family assistance as an exception, I incorporated it into the experience as a product consideration. The concept allowed patients to keep trusted family members informed about relevant appointments and healthcare activity—supporting independence without removing the caregiver relationships they already relied on.</p>
+        <p>This became one of my most important learnings from the project: accessibility isn't only about making an interface easier to use. Sometimes it means designing for the people who help the user succeed.</p>
+      </section>
+
+      <section id="takeaways" class="cs-sec">
+        <p class="sec-eyebrow">Takeaways</p>
+        <h2 class="sec-h">Designing the system around real life—not the happy path</h2>
+        <p>I naturally gravitate toward making the primary experience as seamless as possible. HealthLoop taught me that in healthcare, the edge cases can be as important as the primary flow.</p>
+        <p>The most valuable insight didn't come from another screen iteration. It came from observing how healthcare actually fits into an older patient's life. A 75-year-old participant relying on his daughter reframed my understanding of the user from an isolated individual to someone embedded in a support system. That insight strengthened the product and changed my own design practice.</p>
+        <p>I left the project with three principles I continue to use:</p>
+        <div class="principle"><p class="card-t">Design beyond the happy path.</p><p>A successful flow needs to account for the moments when users need help, change plans, or cannot complete something independently.</p></div>
+        <div class="principle"><p class="card-t">Use research to change decisions—not decorate a case study.</p><p>The value of research is visible when an insight changes the product.</p></div>
+        <div class="principle"><p class="card-t">Design for the ecosystem around the user.</p><p>Especially in healthcare, solving the interface is only one part of solving the experience.</p></div>
+      </section>
+
+    </div>
+  </div>
+</main>
+
+<footer class="cs-foot"><div class="foot-inner"><span>Copyright © 2024 by Sophia Ke</span><a href="index.html">← Back to work</a></div></footer>
+
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.toc a'));
+  var map={}; links.forEach(function(a){map[a.getAttribute('data-sec')]=a;});
+  var secs=[].slice.call(document.querySelectorAll('.cs-sec'));
+  function absTop(el){return el.getBoundingClientRect().top+window.scrollY;}
+  function on(){var y=window.scrollY+140;var act=secs[0];secs.forEach(function(s){if(absTop(s)<=y)act=s;});links.forEach(function(a){a.classList.remove('active');});if(act&&map[act.id])map[act.id].classList.add('active');}
+  window.addEventListener('scroll',on,{passive:true});window.addEventListener('resize',on);on();
+  links.forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var el=document.getElementById(a.getAttribute('data-sec'));if(el)window.scrollTo({top:absTop(el)-88,behavior:'smooth'});});});
+})();
+</script>
+
+</body>
+</html>

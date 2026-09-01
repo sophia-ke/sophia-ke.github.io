@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About | Sophia Ke Portfolio</title>
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<style>
+  /* ---------- Fonts ---------- */
+  @font-face{font-family:"Merriweather";src:url("assets/fonts/merriweather-700-latin.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap;}
+  @font-face{font-family:"Inclusive Sans";src:url("assets/fonts/inclusivesans-400-latin.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap;}
+  @font-face{font-family:"Inclusive Sans";src:url("assets/fonts/inclusivesans-500-latin.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap;}
+
+  /* ---------- Tokens (black & white minimal) ---------- */
+  :root{
+    --bg:#ffffff;
+    --ink:#0a0a0a;
+    --muted:#6b6b6b;
+    --faint:#9a9a9a;
+    --line:rgba(0,0,0,.12);
+    --line-soft:rgba(0,0,0,.08);
+    --pill:#0a0a0a;
+    --pill-fg:#ffffff;
+    --serif:"Merriweather",Georgia,"Times New Roman",serif;
+    --sans:"Inclusive Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:760px;margin:0 auto;padding:0 28px}
+  .wrap-wide{max-width:920px;margin:0 auto;padding:0 28px}
+
+  /* ---------- Nav ---------- */
+  header.nav{position:sticky;top:0;z-index:50;padding:18px 0;background:rgba(255,255,255,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-soft);}
+  .nav-inner{max-width:1120px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .brand{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:17px}
+  .brand img{width:38px;height:38px;border-radius:50%;background:#0a0a0a;padding:6px}
+  .pillnav{display:flex;gap:6px;align-items:center;background:rgba(0,0,0,.04);border:1px solid var(--line-soft);border-radius:999px;padding:6px}
+  .pillnav a{padding:9px 20px;border-radius:999px;font-size:15px;color:var(--muted);transition:.2s ease}
+  .pillnav a:hover{color:var(--ink)}
+  .pillnav a.active{background:var(--pill);color:var(--pill-fg);font-weight:500}
+  .nav-spacer{width:38px}
+
+  /* ---------- Intro ---------- */
+  .intro{padding:88px 0 40px}
+  .tag{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);margin:0 0 22px}
+  .intro h1{font-family:var(--serif);font-weight:700;font-size:clamp(30px,4.6vw,44px);line-height:1.18;letter-spacing:-.01em;margin:0 0 26px}
+  .intro p{color:#2b2b2b;font-size:18px;margin:0 0 20px}
+  .intro p:last-child{margin-bottom:0}
+
+  /* ---------- Statement ---------- */
+  .statement{border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:64px 0;padding:64px 0}
+  .statement blockquote{font-family:var(--serif);font-weight:700;font-size:clamp(34px,6.4vw,64px);line-height:1.08;letter-spacing:-.015em;margin:0}
+  .statement blockquote span{display:block}
+  .statement blockquote .b{color:var(--faint)}
+
+  /* ---------- Section heads ---------- */
+  .sec-title{font-family:var(--serif);font-weight:700;font-size:30px;margin:0 0 6px}
+  .sec-note{color:var(--muted);margin:0 0 40px}
+
+  /* ---------- Journey map (staircase) ---------- */
+  .jmap{margin:8px 0 28px}
+  .jstep{margin:0 0 14px}
+  .jpill{display:inline-flex;align-items:center;gap:16px;background:var(--ink);color:#fff;border-radius:16px;
+         padding:14px 22px;cursor:pointer;outline:none;transition:transform .15s ease}
+  .jpill:focus-visible{box-shadow:0 0 0 3px rgba(0,0,0,.25)}
+  .jpill .yr{font-size:13px;letter-spacing:.06em;color:#c7c7c7;white-space:nowrap;padding-right:16px;
+             border-right:1px solid rgba(255,255,255,.28)}
+  .jpill .co{font-weight:600}
+  .jpill .ro{display:block;font-size:13.5px;color:#c7c7c7;margin-top:2px;font-weight:400}
+  /* education pills — outlined, to read differently from work roles */
+  .jstep.edu .jpill{background:#fff;color:var(--ink);border:1.5px solid var(--ink)}
+  .jstep.edu .jpill .yr{color:var(--muted);border-right-color:rgba(0,0,0,.18)}
+  .jstep.edu .jpill .ro{color:var(--muted)}
+  .jcard{background:#fff;color:var(--ink);border:1px solid var(--line-soft);border-radius:16px;
+         padding:18px 20px;margin:10px 0 0 2px;max-width:560px}
+  .jcard .m{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin:0 0 10px}
+  .jcard .s{font-weight:500;margin:0 0 10px}
+  .jcard ul{margin:0;padding:0;list-style:none}
+  .jcard li{position:relative;padding-left:16px;color:#444;font-size:14.5px;margin:0 0 7px}
+  .jcard li:last-child{margin-bottom:0}
+  .jcard li::before{content:"•";position:absolute;left:0;color:var(--faint)}
+  .hint{font-size:13px;color:var(--faint)}
+
+  @media (min-width:768px){
+    .jmap{position:relative}
+    .jstep{position:relative;width:max-content;margin:0 0 16px}
+    .jstep:nth-child(2){margin-left:40px}
+    .jstep:nth-child(3){margin-left:80px}
+    .jstep:nth-child(4){margin-left:120px}
+    .jstep:nth-child(5){margin-left:160px}
+    .jstep:nth-child(6){margin-left:200px}
+    .jstep:nth-child(7){margin-left:240px}
+    .jpill{cursor:default}
+    .jstep:hover .jpill{transform:translateY(-1px)}
+    .jcard{position:absolute;top:-8px;left:calc(100% + 18px);width:280px;max-width:280px;margin:0;
+           box-shadow:0 22px 50px rgba(0,0,0,.16);opacity:0;visibility:hidden;transform:translateY(6px);
+           transition:opacity .18s ease, transform .18s ease;z-index:8;pointer-events:none}
+    .jstep:hover .jcard,.jstep:focus-within .jcard{opacity:1;visibility:visible;transform:none;pointer-events:auto}
+    .jcard::before{content:"";position:absolute;left:-7px;top:22px;width:13px;height:13px;background:#fff;
+           border-left:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);transform:rotate(45deg)}
+  }
+
+  /* ---------- Education + honors ---------- */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:12px}
+  .edu h4, .honors h4{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin:0 0 18px;font-weight:500}
+  .edu .item{margin:0 0 18px}
+  .edu .item strong{font-weight:500;font-size:16px}
+  .edu .item div{color:var(--muted);font-size:14.5px}
+  .honors ul{margin:0;padding:0;list-style:none}
+  .honors li{padding:8px 0;border-bottom:1px solid var(--line-soft);display:flex;justify-content:space-between;gap:16px;font-size:15px}
+  .honors li span:last-child{color:var(--muted);text-align:right;flex:none}
+
+  /* ---------- Contact buttons ---------- */
+  .contact{padding:60px 0 20px}
+  .btns{display:flex;gap:12px;flex-wrap:wrap}
+  .btns a{background:var(--pill);color:var(--pill-fg);border-radius:999px;padding:14px 26px;font-size:15px;font-weight:500;transition:.2s ease;border:1px solid var(--ink)}
+  .btns a:hover{background:#fff;color:var(--ink)}
+
+  /* ---------- Footer ---------- */
+  footer{border-top:1px solid var(--line-soft);margin-top:60px;padding:36px 0 56px}
+  .foot-inner{max-width:1120px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:var(--muted);font-size:14px}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:720px){
+    .split{grid-template-columns:1fr;gap:34px}
+    .nav-spacer{display:none}
+    .brand span{display:none}
+    .honors li{flex-direction:column;gap:2px}
+    .honors li span:last-child{text-align:left}
+  }
+</style>
+</head>
+<body>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html"><img src="assets/white-KE.png" alt="Sophia Ke"><span>Sophia&nbsp;Ke</span></a>
+      <nav class="pillnav">
+        <a href="index.html">Work</a>
+        <a href="about.html" class="active">About</a>
+        <a href="assets/media/Yujia-Ke-Resume-2025.pdf" target="_blank" rel="noopener">Resume</a>
+      </nav>
+      <div class="nav-spacer"></div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Intro -->
+    <section class="intro">
+      <div class="wrap">
+        <p class="tag">She / Her · UX Designer</p>
+        <h1>Hi, I'm Sophia — a designer who moves between visual craft and how people actually use things.</h1>
+        <p>I started in graphic design, obsessed with how type, color, and composition make people feel something. But I kept wanting to know what happened after the poster — how people actually used the things I made, where they got stuck, and what made a product feel effortless.</p>
+        <p>That question pulled me into human–computer interaction. At the University of Michigan I learned to pair visual craft with research, testing ideas against real behavior instead of taste alone.</p>
+        <p>Since then I've designed across telemedicine, e-commerce, and AI — from Healthloop, a chronic-care app I initiated during the pandemic, to AI video tools at Vizard today. What I care about most is turning fuzzy, early-stage ideas into experiences people genuinely understand and want to use.</p>
+      </div>
+    </section>
+
+    <!-- Statement -->
+    <section class="statement">
+      <div class="wrap">
+        <blockquote>
+          <span>Design is how I think.</span>
+          <span class="b">Building is how I prove it.</span>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- My journey -->
+    <section class="journey">
+      <div class="wrap-wide">
+        <h2 class="sec-title">My journey</h2>
+        <p class="sec-note">From graphic design to HCI to shipping AI products — here's the path so far. <span class="hint">Hover a role to see the details.</span></p>
+
+        <div class="jmap">
+
+          <div class="jstep edu">
+            <div class="jpill" tabindex="0">
+              <span class="yr">2017–21</span>
+              <span><span class="co">Northeastern University</span><span class="ro">BFA, Graphic Design</span></span>
+            </div>
+            <div class="jcard">
+              <p class="m">Bachelor of Fine Arts · Boston, MA · 2017 – 2021</p>
+              <p class="s">BFA in Graphic Design.</p>
+              <ul>
+                <li>Built a foundation in typography, composition, and visual systems.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="jstep">
+            <div class="jpill" tabindex="0">
+              <span class="yr">2020</span>
+              <span><span class="co">Wayfair</span><span class="ro">Product Designer Co-op</span></span>
+            </div>
+            <div class="jcard">
+              <p class="m">Co-op · Boston, MA · Jan – Jun 2020</p>
+              <p class="s">Redesigned the Patient Perk shipping feature on the eCommerce checkout and shipping page.</p>
+              <ul>
+                <li>Ran 16 competitor analyses and multiple design iterations.</li>
+                <li>Added incentive rewards to address pandemic-related delays, increasing conversion rates by 14%.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="jstep">
+            <div class="jpill" tabindex="0">
+              <span class="yr">2021–22</span>
+              <span><span class="co">Tang Ning Medical Technology</span><span class="ro">Product Designer</span></span>
+            </div>
+            <div class="jcard">
+              <p class="m">Product Designer · Shanghai, China · Jan 2021 – Mar 2022</p>
+              <p class="s">Initiated Healthloop, a telemedicine app for chronic-disease patients during the pandemic.</p>
+              <ul>
+                <li>Conducted user research to shape the product direction.</li>
+                <li>Created 40+ wireframes and prototypes, and 60+ responsive design-system components.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="jstep edu">
+            <div class="jpill" tabindex="0">
+              <span class="yr">2022–24</span>
+              <span><span class="co">University of Michigan</span><span class="ro">MS, Information Science (HCI)</span></span>
+            </div>
+            <div class="jcard">
+              <p class="m">Master of Science · Ann Arbor, MI · 2022 – 2024</p>
+              <p class="s">MS in Information Science — UX Research &amp; Design (HCI).</p>
+              <ul>
+                <li>Focused on human–computer interaction, user research, and interaction design.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="jstep">
+            <div class="jpill" tabindex="0">
+              <span class="yr">2023–24</span>
+              <span><span class="co">SpeedyJob</span><span class="ro">UX Designer</span></span>
+            </div>
+            <div class="jcard">
+              <p class="m">UX Designer · Remote · May 2023 – May 2024</p>
+              <p class="s">Led the end-to-end design of a 0-to-1 AI-powered resume platform.</p>
+              <ul>
+                <li>Built visual assets, a design system, and product requirement documentation.</li>
+                <li>Delivered wireframes, prototypes, and a scalable design library.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="jstep">
+            <div class="jpill" tabindex="0">
+              <span class="yr">2024–25</span>
+              <span><span class="co">MomsinLA</span><span class="ro">UX Designer</span></span>
+            </div>
+            <div class="jcard">
+              <p class="m">UX Designer · Los Angeles, CA · Sep 2024 – Jun 2025</p>
+              <p class="s">Designed onboarding and a referral rewards program for Mamaland, a kids' activities app.</p>
+              <ul>
+                <li>Integrated a user wallet into the referral experience.</li>
+                <li>Increased customer acquisition by 18%.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="jstep">
+            <div class="jpill" tabindex="0">
+              <span class="yr">2025 —</span>
+              <span><span class="co">Vizard</span><span class="ro">UX Designer</span></span>
+            </div>
+            <div class="jcard">
+              <p class="m">UX Designer · Palo Alto, CA · Jun 2025 – Present</p>
+              <p class="s">Design AI Video Agent experiences for creators, agencies, and small businesses.</p>
+              <ul>
+                <li>Redesigned the video editor upload flow, AI processing experience, and templates.</li>
+                <li>Built AI workflows turning long-form content into short clips — clip detection, captions, optimization.</li>
+                <li>Led end-to-end design: research, interaction design, prototyping, and usability testing.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Education + Honors -->
+        <div class="split">
+          <div class="edu">
+            <h4>Education</h4>
+            <div class="item">
+              <strong>University of Michigan</strong>
+              <div>MS, Information Science — UX Research &amp; Design (HCI)</div>
+            </div>
+            <div class="item">
+              <strong>Northeastern University</strong>
+              <div>BFA, Graphic Design</div>
+            </div>
+          </div>
+          <div class="honors">
+            <h4>International Awards</h4>
+            <ul>
+              <li><span>Red Dot Awards</span><span>Design Concept</span></li>
+              <li><span>Red Dot Awards</span><span>Brand &amp; Communication</span></li>
+              <li><span>Muse Design Awards</span><span>UX/UI/IxD</span></li>
+              <li><span>European Design Awards</span><span>Interface Design</span></li>
+              <li><span>London Design Awards</span><span>UI Design</span></li>
+              <li><span>Titan Innovation Awards</span><span>Innovation</span></li>
+              <li><span>NY Design Awards</span><span>User Experience</span></li>
+              <li><span>IDA Design Awards</span><span>Conceptual</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact">
+      <div class="wrap-wide">
+        <div class="btns">
+          <a href="https://www.linkedin.com/in/sophia-ke/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="assets/media/Yujia-Ke-Resume-2025.pdf" target="_blank" rel="noopener">Resume</a>
+          <a href="mailto:sophiake2024@gmail.com">Have a chat👋</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot-inner">
+      <span>Copyright © 2024 by Sophia Ke</span>
+      <span>Designed &amp; built by Sophia Ke</span>
+    </div>
+  </footer>
+
+</body>
+</html>
