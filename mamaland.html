@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mamaland | Sophia Ke Portfolio</title>
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<style>
+@font-face{font-family:"Merriweather";src:url("assets/fonts/merriweather-700-latin.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Inclusive Sans";src:url("assets/fonts/inclusivesans-400-latin.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Inclusive Sans";src:url("assets/fonts/inclusivesans-500-latin.woff2") format("woff2");font-weight:500;font-display:swap}
+:root{--bg:#fff;--ink:#0a0a0a;--muted:#6b6b6b;--faint:#9a9a9a;--line:rgba(0,0,0,.12);--line-soft:rgba(0,0,0,.08);--pill:#0a0a0a;--pill-fg:#fff;--serif:"Merriweather",Georgia,serif;--sans:"Inclusive Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+header.nav{position:sticky;top:0;z-index:50;padding:16px 0;background:rgba(255,255,255,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-soft)}
+.nav-inner{max-width:1180px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:17px}
+.brand img{width:36px;height:36px;border-radius:50%;background:#0a0a0a;padding:6px}
+.pillnav{display:flex;gap:6px;background:rgba(0,0,0,.04);border:1px solid var(--line-soft);border-radius:999px;padding:6px}
+.pillnav a{padding:8px 18px;border-radius:999px;font-size:15px;color:var(--muted);transition:.2s}
+.pillnav a:hover{color:var(--ink)}.pillnav a.active{background:var(--pill);color:var(--pill-fg);font-weight:500}
+.nav-spacer{width:36px}
+.cs{max-width:1180px;margin:0 auto;padding:0 28px}
+.cs-head{padding:64px 0 26px}
+.cs-eyebrow{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);margin:0 0 16px}
+.cs-head h1{font-family:var(--serif);font-weight:700;font-size:clamp(38px,6vw,64px);line-height:1.05;letter-spacing:-.015em;margin:0}
+.cs-tagline{font-family:var(--serif);font-weight:700;font-size:clamp(20px,2.6vw,27px);line-height:1.3;margin:18px 0 0;color:var(--ink)}
+.cs-sub{color:var(--muted);font-size:18px;margin:16px 0 0}
+.cs-tags{color:var(--faint);font-size:14px;letter-spacing:.02em;margin:14px 0 0}
+.hero-fig,.fig{border-radius:16px;overflow:hidden;border:1px solid var(--line-soft)}
+.hero-fig{margin:10px 0}
+.cs-wrap{display:grid;grid-template-columns:210px minmax(0,1fr);gap:64px;align-items:start;padding:40px 0 20px}
+.toc{position:sticky;top:96px}
+.toc-title{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin:0 0 16px}
+.toc ul{list-style:none;margin:0;padding:0;border-left:1px solid var(--line)}
+.toc a{display:block;padding:8px 0 8px 16px;margin-left:-1px;font-size:14.5px;color:var(--muted);border-left:2px solid transparent;transition:.15s}
+.toc a:hover{color:var(--ink)}
+.toc a.active{color:var(--ink);font-weight:500;border-left-color:var(--ink)}
+.cs-main{max-width:720px}
+.cs-sec{scroll-margin-top:96px;padding:36px 0 44px;border-top:1px solid var(--line)}
+.cs-sec:first-child{border-top:none;padding-top:8px}
+.sec-eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin:0 0 12px}
+.sec-h{font-family:var(--serif);font-weight:700;font-size:clamp(25px,3.2vw,33px);line-height:1.14;letter-spacing:-.01em;margin:0 0 20px}
+.cs-main p{margin:0 0 18px;color:#242424}
+.lead{font-size:19px;color:#141414;font-weight:500}
+.cs-main h4{font-size:18px;font-weight:600;margin:30px 0 10px}
+.eyebrow{font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin:0 0 8px}
+.flow{font-weight:500;color:var(--ink)}
+.pull{font-family:var(--serif);font-weight:700;font-size:23px;line-height:1.32;margin:24px 0;padding:6px 0 6px 22px;border-left:3px solid var(--ink);color:var(--ink)}
+.quotelist{display:grid;gap:8px;margin:16px 0 20px;padding:16px 20px;border-left:3px solid var(--line);background:#fafafa;border-radius:0 12px 12px 0}
+.quotelist p{margin:0;font-family:var(--serif);font-style:italic;font-size:17px;color:#333}
+.fromto{display:grid;gap:12px;margin:22px 0}
+.ft{display:flex;gap:14px;align-items:baseline;padding:16px 20px;border-radius:12px;border:1px solid var(--line-soft);font-size:16px}
+.ft-k{flex:none;width:52px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);padding-top:2px}
+.ft.from{color:var(--muted);background:#fafafa}
+.ft.to{color:var(--ink);border-color:var(--ink);font-weight:500}
+.cards{display:grid;gap:14px;margin:20px 0}
+.cards-2{grid-template-columns:1fr 1fr}
+.cards-3{grid-template-columns:repeat(3,1fr)}
+.card{border:1px solid var(--line-soft);border-radius:14px;padding:20px}
+.card .card-k{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);margin:0 0 8px}
+.card .card-t{font-weight:600;font-size:16px;margin:0 0 6px}
+.card p{margin:0;color:#333;font-size:15px}
+.stepflow{display:grid;gap:8px;margin:18px 0;padding:18px 20px;border-radius:12px;background:#fafafa;border:1px solid var(--line-soft)}
+.stepflow p{margin:0;font-weight:500;color:var(--ink);font-size:15.5px}
+.chips{color:var(--ink);font-weight:500;margin:16px 0}
+.twocol{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin:22px 0}
+.twocol .col-k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin:0 0 10px}
+ul.list{margin:12px 0 18px;padding-left:20px}
+ul.list li{margin:0 0 9px;color:#2a2a2a}
+.fig.ph{aspect-ratio:16/6.6;display:grid;place-items:center;text-align:center;padding:24px;border:1px dashed rgba(0,0,0,.22);
+  background:repeating-linear-gradient(45deg,#f7f7f5,#f7f7f5 14px,#f1f1ef 14px,#f1f1ef 28px)}
+.hero-fig.ph{aspect-ratio:16/6.2}
+.ph-k{display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin-bottom:8px}
+.ph-t{color:#555;font-size:14.5px;max-width:56ch;margin:0 auto}
+.cs-foot{border-top:1px solid var(--line-soft);margin-top:20px;padding:32px 0 56px}
+.foot-inner{max-width:1180px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;gap:16px;color:var(--muted);font-size:14px}
+.foot-inner a:hover{color:var(--ink)}
+@media (max-width:980px){.cs-wrap{grid-template-columns:1fr;gap:0}.toc{display:none}.brand span{display:none}.nav-spacer{display:none}}
+@media (max-width:720px){.cards-2,.cards-3{grid-template-columns:1fr}.twocol{grid-template-columns:1fr}.fig.ph,.hero-fig.ph{aspect-ratio:16/9}}
+</style>
+</head>
+<body>
+
+<header class="nav"><div class="nav-inner"><a class="brand" href="index.html"><img src="assets/white-KE.png" alt="Sophia Ke"><span>Sophia&nbsp;Ke</span></a><nav class="pillnav"><a href="index.html" class="active">Work</a><a href="about.html">About</a><a href="assets/media/Yujia-Ke-Resume-2025.pdf" target="_blank" rel="noopener">Resume</a></nav><div class="nav-spacer"></div></div></header>
+
+<main class="cs">
+  <header class="cs-head">
+    <p class="cs-eyebrow">Case Study</p>
+    <h1>MamaLand</h1>
+    <p class="cs-tagline">Growing a Parent Learning Community</p>
+    <p class="cs-sub">Redesigned onboarding and referral experiences to help Asian families in California discover extracurricular programs for their children — and turn trusted parent recommendations into a scalable acquisition loop.</p>
+    <p class="cs-tags">Growth · Acquisition · Referral · Onboarding · Mobile</p>
+  </header>
+
+  <figure class="hero-fig ph"><div><span class="ph-k">Image placeholder</span><span class="ph-t">Product hero / 20–30 sec demo: Discover → Share → Join → Discover</span></div></figure>
+
+  <div class="cs-wrap">
+    <aside class="toc">
+      <p class="toc-title">On this page</p>
+      <ul>
+        <li><a href="#opportunity" data-sec="opportunity">The Growth Opportunity</a></li>
+        <li><a href="#loop" data-sec="loop">From Funnel to Loop</a></li>
+        <li><a href="#share" data-sec="share">Make Sharing Natural</a></li>
+        <li><a href="#context" data-sec="context">Preserve Context</a></li>
+        <li><a href="#value" data-sec="value">Time to Value</a></li>
+        <li><a href="#two-sided" data-sec="two-sided">Both Sides of Growth</a></li>
+        <li><a href="#closing" data-sec="closing">Closing the Loop</a></li>
+        <li><a href="#impact" data-sec="impact">Impact</a></li>
+        <li><a href="#takeaway" data-sec="takeaway">What I Learned</a></li>
+      </ul>
+    </aside>
+
+    <div class="cs-main">
+
+      <section id="opportunity" class="cs-sec">
+        <p class="sec-eyebrow">The Growth Opportunity</p>
+        <h2 class="sec-h">For many parents, choosing a program starts with another parent</h2>
+        <p>For many parents, choosing an extracurricular program doesn't start with search. It starts with another parent:</p>
+        <div class="quotelist">
+          <p>"Where does your child take swimming lessons?"</p>
+          <p>"Do you know a good summer camp?"</p>
+          <p>"Is this class worth it?"</p>
+        </div>
+        <p>MamaLand helps Asian families in California discover local extracurricular activities and educational programs for their children. But while parents were already sharing recommendations with each other offline, that behavior wasn't yet built into the product experience.</p>
+        <p>That led to my core growth question:</p>
+        <blockquote class="pull">How might we turn trusted parent recommendations into new-user acquisition?</blockquote>
+        <p>Instead of treating referral as a separate marketing feature, I redesigned it as part of the core product journey.</p>
+        <figure class="fig ph"><div><span class="ph-k">Image placeholder</span><span class="ph-t">Parent behavior insight + opportunity</span></div></figure>
+      </section>
+
+      <section id="loop" class="cs-sec">
+        <p class="sec-eyebrow">From a Linear Funnel to a Growth Loop</p>
+        <h2 class="sec-h">Reframing the journey around two users</h2>
+        <p>The original experience focused primarily on helping one parent discover activities. I reframed the journey around two users:</p>
+        <div class="cards cards-2">
+          <div class="card"><p class="card-t">Existing parent</p><p>Finds something valuable and wants to recommend it.</p></div>
+          <div class="card"><p class="card-t">New parent</p><p>Receives the recommendation and needs to quickly understand why MamaLand is useful.</p></div>
+        </div>
+        <p>This created a repeatable loop:</p>
+        <p><span class="flow">Discover → Find value → Share → Join → Discover</span></p>
+        <p>The key insight was simple:</p>
+        <blockquote class="pull">A referral only works if both sides of the experience work.</blockquote>
+        <p>It wasn't enough to make sharing easier. The invited parent also needed a clear path from recommendation → signup → first value.</p>
+        <figure class="fig ph"><div><span class="ph-k">Image placeholder</span><span class="ph-t">Growth loop diagram</span></div></figure>
+      </section>
+
+      <section id="share" class="cs-sec">
+        <p class="sec-eyebrow">01</p>
+        <h2 class="sec-h">Make sharing feel natural</h2>
+        <p>A generic "Invite Friends" CTA asks users to promote the product. That's not how parents naturally recommend things. Parents are more likely to share when they have already found something useful for their family.</p>
+        <p>So I explored referral moments around high-intent behaviors — such as discovering an activity or finding a program another family might be interested in.</p>
+        <p>The experience shifted:</p>
+        <div class="fromto">
+          <div class="ft from"><span class="ft-k">From</span> "Invite your friends to MamaLand."</div>
+          <div class="ft to"><span class="ft-k">To</span> "Know another family who would like this?"</div>
+        </div>
+        <p>This made referral feel like helping another parent, not helping the company acquire users.</p>
+        <figure class="fig ph"><div><span class="ph-k">Image placeholder</span><span class="ph-t">Before / after referral entry points</span></div></figure>
+      </section>
+
+      <section id="context" class="cs-sec">
+        <p class="sec-eyebrow">02</p>
+        <h2 class="sec-h">Preserve the context behind the invitation</h2>
+        <p>Getting someone to tap an invitation isn't the same as acquiring a user. The invited parent still needs to understand:</p>
+        <ul class="list">
+          <li>Why was I invited?</li>
+          <li>What can I find here?</li>
+          <li>Why should I sign up?</li>
+        </ul>
+        <p>I redesigned the onboarding journey so the referral context carried into the new-user experience. Instead of sending invited parents into a generic registration flow, the experience connected the invitation with the value of MamaLand and reduced unnecessary friction before discovery.</p>
+        <p>The goal was to preserve the motivation that brought them into the product.</p>
+        <p><span class="flow">Referral → Lightweight onboarding → Relevant discovery</span></p>
+        <figure class="fig ph"><div><span class="ph-k">Image placeholder</span><span class="ph-t">Invite → signup → onboarding flow</span></div></figure>
+      </section>
+
+      <section id="value" class="cs-sec">
+        <p class="sec-eyebrow">03</p>
+        <h2 class="sec-h">Get new parents to value faster</h2>
+        <p>Acquisition wasn't the end goal. A successful referral needed to create another active parent, not just another account. So I looked at onboarding through the lens of time to value.</p>
+        <p>Instead of front-loading setup, I prioritized the information needed to help parents reach relevant extracurricular programs faster.</p>
+        <p>The journey shifted:</p>
+        <div class="fromto">
+          <div class="ft from"><span class="ft-k">From</span> Signup → Setup → More setup → Explore</div>
+          <div class="ft to"><span class="ft-k">To</span> Join → Tell us what matters → See relevant activities</div>
+        </div>
+        <p>Once a new parent finds something useful, they also have a reason to share it with another family. That closes the loop.</p>
+        <figure class="fig ph"><div><span class="ph-k">Image placeholder</span><span class="ph-t">Onboarding personalization / first-value demo</span></div></figure>
+      </section>
+
+      <section id="two-sided" class="cs-sec">
+        <p class="sec-eyebrow">Designing Both Sides of Growth</p>
+        <h2 class="sec-h">Treating referral as a two-sided product experience</h2>
+        <p>One of the most important decisions was treating referral as a two-sided product experience.</p>
+        <div class="cards cards-2">
+          <div class="card"><p class="card-k">For the sender</p><p class="card-t">"Why should I share this now?"</p><p>Contextual entry points, low effort, and a clear reason to recommend.</p></div>
+          <div class="card"><p class="card-k">For the recipient</p><p class="card-t">"Why should I join?"</p><p>Trust, invitation context, and getting to relevant activities quickly.</p></div>
+        </div>
+        <p>Together, these two journeys transformed referral from an isolated feature into a connected growth system:</p>
+        <p><span class="flow">Existing-user value → Recommendation → New-user activation</span></p>
+        <figure class="fig ph"><div><span class="ph-k">Image placeholder</span><span class="ph-t">Sender vs. recipient journey</span></div></figure>
+      </section>
+
+      <section id="closing" class="cs-sec">
+        <p class="sec-eyebrow">Closing the Growth Loop</p>
+        <h2 class="sec-h">Connecting acquisition directly to the product experience</h2>
+        <p>The redesign connected MamaLand's acquisition strategy directly to the product experience.</p>
+        <div class="stepflow">
+          <p>A parent discovers something valuable</p>
+          <p>↓ Shares it with another family</p>
+          <p>↓ That parent joins MamaLand</p>
+          <p>↓ Discovers relevant programs for their child</p>
+          <p>↓ Finds something worth recommending</p>
+          <p>↓ The loop repeats</p>
+        </div>
+        <p>Instead of relying only on external acquisition, the product could use existing parent value to create the next user.</p>
+        <figure class="fig ph"><div><span class="ph-k">Image placeholder</span><span class="ph-t">Final end-to-end referral loop / prototype demo</span></div></figure>
+      </section>
+
+      <section id="impact" class="cs-sec">
+        <p class="sec-eyebrow">Impact</p>
+        <h2 class="sec-h">A community-driven acquisition engine</h2>
+        <div class="twocol">
+          <div>
+            <p class="col-k">For parents</p>
+            <ul class="list">
+              <li>Easier ways to recommend relevant programs to other families</li>
+              <li>Less friction when joining through an invitation</li>
+              <li>Faster access to relevant extracurricular activities</li>
+              <li>A more community-driven discovery experience</li>
+            </ul>
+          </div>
+          <div>
+            <p class="col-k">For the product</p>
+            <ul class="list">
+              <li>Connected referral with onboarding and activation</li>
+              <li>Turned existing parent behavior into a repeatable acquisition mechanism</li>
+              <li>Created a stronger foundation for product-led growth</li>
+            </ul>
+          </div>
+        </div>
+        <figure class="fig ph"><div><span class="ph-k">Image placeholder</span><span class="ph-t">Metrics / referral funnel / before vs. after</span></div></figure>
+      </section>
+
+      <section id="takeaway" class="cs-sec">
+        <p class="sec-eyebrow">What I Learned</p>
+        <h2 class="sec-h">Amplify existing behavior — don't just add entry points</h2>
+        <p>Growth design isn't just about adding more entry points or making signup shorter. The more important question is:</p>
+        <blockquote class="pull">What existing user behavior can the product amplify?</blockquote>
+        <p>For MamaLand, parents were already helping other parents make decisions. My role was to turn that trusted behavior into a product loop — connecting discovery, recommendation, onboarding, and activation so that one successful parent experience could help create the next.</p>
+      </section>
+
+    </div>
+  </div>
+</main>
+
+<footer class="cs-foot"><div class="foot-inner"><span>Copyright © 2024 by Sophia Ke</span><a href="index.html">← Back to work</a></div></footer>
+
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.toc a'));
+  var map={}; links.forEach(function(a){map[a.getAttribute('data-sec')]=a;});
+  var secs=[].slice.call(document.querySelectorAll('.cs-sec'));
+  function absTop(el){return el.getBoundingClientRect().top+window.scrollY;}
+  function on(){var y=window.scrollY+140;var act=secs[0];secs.forEach(function(s){if(absTop(s)<=y)act=s;});links.forEach(function(a){a.classList.remove('active');});if(act&&map[act.id])map[act.id].classList.add('active');}
+  window.addEventListener('scroll',on,{passive:true});window.addEventListener('resize',on);on();
+  links.forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var el=document.getElementById(a.getAttribute('data-sec'));if(el)window.scrollTo({top:absTop(el)-88,behavior:'smooth'});});});
+})();
+</script>
+
+</body>
+</html>
