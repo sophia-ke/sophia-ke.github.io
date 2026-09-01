@@ -1051,4 +1051,15 @@ Process</span></h3></div><!--/$--></div></div><!--/$--></div></section><!--/$-->
 
 
 
+<script>
+(function(){
+  var logos=document.querySelectorAll('img[src*="white-ke"],img[src*="logo-white"]');
+  logos.forEach(function(img){
+    var t=img.closest('a')||img;
+    if(t.tagName==='A'){t.setAttribute('href','index.html');return;}
+    img.style.cursor='pointer';
+    img.addEventListener('click',function(e){e.preventDefault();window.location.href='index.html';});
+  });
+})();
+</script>
 </body></html>
