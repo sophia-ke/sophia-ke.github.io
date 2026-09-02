@@ -50,6 +50,40 @@
   .intro p{color:#2b2b2b;font-size:18px;margin:0 0 20px}
   .intro p:last-child{margin-bottom:0}
 
+  /* ---------- International Awards ---------- */
+  .awards{padding:8px 0 4px}
+  .awards-title{font-family:var(--serif);font-weight:700;font-size:clamp(26px,3.6vw,38px);
+    line-height:1.12;letter-spacing:-.015em;margin:6px 0 8px}
+  .awards-note{color:var(--muted);margin:0 0 26px}
+  .awards-note .hint{font-size:13px;color:var(--faint)}
+  .award-list{border-top:1px solid var(--line)}
+  .award-row{position:relative;display:flex;align-items:baseline;justify-content:space-between;gap:24px;
+    padding:22px 6px;border-bottom:1px solid var(--line);color:var(--ink);
+    transition:padding-left .26s cubic-bezier(.22,1,.36,1),background-color .2s ease}
+  .award-row .aw-name{font-family:var(--serif);font-weight:700;
+    font-size:clamp(21px,3vw,31px);line-height:1.14;letter-spacing:-.01em}
+  .award-row .aw-cat{flex:none;text-align:right;white-space:nowrap;color:var(--muted);
+    font-size:14px;letter-spacing:.02em;transition:opacity .2s ease}
+  .award-row::before{content:"";position:absolute;left:-2px;top:8px;bottom:8px;width:3px;
+    background:var(--ink);border-radius:3px;transform:scaleY(0);transform-origin:center;
+    transition:transform .26s cubic-bezier(.22,1,.36,1)}
+  @media (hover:hover){
+    .award-row:hover{padding-left:22px}
+    .award-row:hover::before{transform:scaleY(1)}
+  }
+  .award-row:focus-visible{outline:none;padding-left:22px}
+  .award-row:focus-visible::before{transform:scaleY(1)}
+  /* floating hero-image preview that follows the cursor */
+  .award-preview{position:fixed;top:0;left:0;width:320px;max-width:44vw;aspect-ratio:16/10;
+    object-fit:cover;border-radius:14px;background:#f2f2f2;
+    box-shadow:0 26px 60px rgba(0,0,0,.30);border:1px solid var(--line-soft);
+    pointer-events:none;opacity:0;transition:opacity .18s ease;z-index:60;will-change:left,top}
+  .award-preview.show{opacity:1}
+  @media (max-width:560px){
+    .award-row{gap:12px;padding:18px 4px}
+    .award-row .aw-cat{font-size:12.5px}
+  }
+
   /* ---------- Statement ---------- */
   .statement{border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:64px 0;padding:64px 0}
   .statement blockquote{font-family:var(--serif);font-weight:700;font-size:clamp(34px,6.4vw,64px);line-height:1.08;letter-spacing:-.015em;margin:0}
@@ -114,7 +148,7 @@
   .honors li span:last-child{color:var(--muted);text-align:right;flex:none}
 
   /* ---------- Contact buttons ---------- */
-  .contact{padding:60px 0 20px}
+  .contact{padding:8px 0 52px}
   .btns{display:flex;gap:12px;flex-wrap:wrap}
   .btns a{background:var(--pill);color:var(--pill-fg);border-radius:999px;padding:14px 26px;font-size:15px;font-weight:500;transition:.2s ease;border:1px solid var(--ink)}
   .btns a:hover{background:#fff;color:var(--ink)}
@@ -159,6 +193,71 @@
       </div>
     </section>
 
+    <!-- Contact -->
+    <section class="contact">
+      <div class="wrap">
+        <div class="btns">
+          <a href="https://www.linkedin.com/in/sophia-ke/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="assets/media/Yujia-Ke-Resume-2025.pdf" target="_blank" rel="noopener">Resume</a>
+          <a href="mailto:sophiake2024@gmail.com">Have a chat👋</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- International Awards -->
+    <section class="awards">
+      <div class="wrap">
+        <p class="tag">Recognition</p>
+        <h2 class="awards-title">International Awards</h2>
+        <p class="awards-note">Selected honors for product &amp; concept design. <span class="hint">Hover an award to preview the project.</span></p>
+        <div class="award-list">
+          <a class="award-row" target="_blank" rel="noopener"
+             href="https://www.red-dot.org/project/milo-supporting-pediatric-patients-through-ai-and-ar-83193"
+             data-img="assets/awards/reddot-milo.jpg">
+            <span class="aw-name">Red Dot Award</span>
+            <span class="aw-cat">Design Concept</span>
+          </a>
+          <a class="award-row" target="_blank" rel="noopener"
+             href="https://www.red-dot.org/project/lumo-app-built-for-dyslexic-kids-made-for-fun-85197"
+             data-img="assets/awards/reddot-lumo.jpg">
+            <span class="aw-name">Red Dot Award</span>
+            <span class="aw-cat">Brand &amp; Communication</span>
+          </a>
+          <a class="award-row" target="_blank" rel="noopener"
+             href="https://design.museaward.com/winners-info.php?id=27519"
+             data-img="assets/awards/muse.jpg">
+            <span class="aw-name">MUSE Design Awards</span>
+            <span class="aw-cat">UX / UI / IxD</span>
+          </a>
+          <a class="award-row" target="_blank" rel="noopener"
+             href="https://www.productdesignaward.eu/winners/epda/2024/11920/"
+             data-img="assets/awards/european.jpg">
+            <span class="aw-name">European Product Design Award</span>
+            <span class="aw-cat">Digital Design</span>
+          </a>
+          <a class="award-row" target="_blank" rel="noopener"
+             href="https://thelondondesignawards.com/winner-info.php?id=4045"
+             data-img="assets/awards/london.jpg">
+            <span class="aw-name">London Design Awards</span>
+            <span class="aw-cat">UI Design</span>
+          </a>
+          <a class="award-row" target="_blank" rel="noopener"
+             href="https://titaninnovationawards.com/winner-info.php?id=792"
+             data-img="assets/awards/titan.jpg">
+            <span class="aw-name">Titan Innovation Awards</span>
+            <span class="aw-cat">Innovation</span>
+          </a>
+          <a class="award-row" target="_blank" rel="noopener"
+             href="https://nydesignawards.com/winner-info.php?id=2778"
+             data-img="assets/awards/ny.jpg">
+            <span class="aw-name">NY Product Design Awards</span>
+            <span class="aw-cat">User Experience</span>
+          </a>
+        </div>
+      </div>
+      <img class="award-preview" id="awardPreview" alt="" aria-hidden="true">
+    </section>
+
     <!-- Statement -->
     <section class="statement">
       <div class="wrap">
@@ -171,7 +270,7 @@
 
     <!-- My journey -->
     <section class="journey">
-      <div class="wrap-wide">
+      <div class="wrap">
         <h2 class="sec-title">My journey</h2>
         <p class="sec-note">From graphic design to HCI to shipping AI products — here's the path so far. <span class="hint">Hover a role to see the details.</span></p>
 
@@ -283,46 +382,9 @@
 
         </div>
 
-        <!-- Education + Honors -->
-        <div class="split">
-          <div class="edu">
-            <h4>Education</h4>
-            <div class="item">
-              <strong>University of Michigan</strong>
-              <div>MS, Information Science — UX Research &amp; Design (HCI)</div>
-            </div>
-            <div class="item">
-              <strong>Northeastern University</strong>
-              <div>BFA, Graphic Design</div>
-            </div>
-          </div>
-          <div class="honors">
-            <h4>International Awards</h4>
-            <ul>
-              <li><span>Red Dot Awards</span><span>Design Concept</span></li>
-              <li><span>Red Dot Awards</span><span>Brand &amp; Communication</span></li>
-              <li><span>Muse Design Awards</span><span>UX/UI/IxD</span></li>
-              <li><span>European Design Awards</span><span>Interface Design</span></li>
-              <li><span>London Design Awards</span><span>UI Design</span></li>
-              <li><span>Titan Innovation Awards</span><span>Innovation</span></li>
-              <li><span>NY Design Awards</span><span>User Experience</span></li>
-              <li><span>IDA Design Awards</span><span>Conceptual</span></li>
-            </ul>
-          </div>
-        </div>
       </div>
     </section>
 
-    <!-- Contact -->
-    <section class="contact">
-      <div class="wrap-wide">
-        <div class="btns">
-          <a href="https://www.linkedin.com/in/sophia-ke/" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="assets/media/Yujia-Ke-Resume-2025.pdf" target="_blank" rel="noopener">Resume</a>
-          <a href="mailto:sophiake2024@gmail.com">Have a chat👋</a>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer>
@@ -331,6 +393,36 @@
       <span>Designed &amp; built by Sophia Ke</span>
     </div>
   </footer>
+
+  <script>
+    /* Cursor-following hero-image preview for the awards list */
+    (function(){
+      var preview = document.getElementById('awardPreview');
+      if(!preview) return;
+      var rows = document.querySelectorAll('.award-row');
+      var x = 0, y = 0, raf = null;
+      function place(){
+        var w = preview.offsetWidth || 320;
+        var flip = (x > window.innerWidth - (w + 28));
+        var offX = flip ? -(w + 20) : 20;
+        preview.style.left = x + 'px';
+        preview.style.top  = y + 'px';
+        preview.style.transform = 'translate(' + offX + 'px, -50%)';
+        raf = null;
+      }
+      function move(e){ x = e.clientX; y = e.clientY; if(!raf) raf = requestAnimationFrame(place); }
+      rows.forEach(function(r){
+        r.addEventListener('mouseenter', function(){
+          var src = r.getAttribute('data-img');
+          if(!src) return;
+          preview.src = src;
+          preview.classList.add('show');
+        });
+        r.addEventListener('mousemove', move);
+        r.addEventListener('mouseleave', function(){ preview.classList.remove('show'); });
+      });
+    })();
+  </script>
 
 </body>
 </html>
