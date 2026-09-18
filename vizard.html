@@ -30,6 +30,7 @@ header.nav{position:sticky;top:0;z-index:50;padding:16px 0;background:rgba(255,2
 .cs-tags{color:var(--faint);font-size:14px;letter-spacing:.02em;margin:14px 0 0;text-transform:none}
 .hero-fig,.fig{border-radius:16px;overflow:hidden;border:1px solid var(--line-soft)}
 .hero-fig img,.fig img{width:100%}
+.fig-stack{display:grid;gap:14px;margin:22px 0}.fig-stack .fig{margin:0}
 .hero-fig{margin:10px 0}
 .cs-wrap{display:grid;grid-template-columns:210px minmax(0,1fr);gap:64px;align-items:start;padding:40px 0 20px}
 .toc{position:sticky;top:96px}
@@ -148,7 +149,7 @@ ul.list li{margin:0 0 9px;color:#2a2a2a}
           <div class="card"><p class="card-k">After clips were generated</p><p>Creators wanted to make quick changes without opening a full video editor.</p></div>
         </div>
         <p>Rather than adding more editing features, I focused on improving these three moments.</p>
-        <figure class="fig ph"><div><span class="ph-k">Image placeholder</span><span class="ph-t">User journey showing the three key friction points</span></div></figure>
+        <figure class="fig"><img src="assets/media/vizard-3.png" alt="User journey showing the three key friction points: before AI creation, while AI is working, after clips are generated" loading="lazy"></figure>
       </section>
 
       <section id="show-value" class="cs-sec">
@@ -162,7 +163,7 @@ ul.list li{margin:0 0 9px;color:#2a2a2a}
           <div class="ft to"><span class="ft-k">To</span> Upload → Express intent → Let AI create</div>
         </div>
         <p>Instead of treating upload as dead time, it became the first creative decision in the workflow.</p>
-        <figure class="fig ph"><div><span class="ph-k">Video placeholder</span><span class="ph-t">Video demo: Upload flow with real-time template preview and selection</span></div></figure>
+        <figure class="fig"><img src="assets/media/vizard-4.jpg" alt="Upload flow with real-time template preview and selection" loading="lazy"></figure>
       </section>
 
       <section id="latency" class="cs-sec">
@@ -174,7 +175,7 @@ ul.list li{margin:0 0 9px;color:#2a2a2a}
           <div class="card"><p class="card-t">New users</p><p>Could stay and learn what the AI was doing through lightweight onboarding and product education.</p></div>
         </div>
         <p>The goal wasn't to hide AI latency. It was to make the waiting time feel intentional.</p>
-        <figure class="fig ph"><div><span class="ph-k">Image placeholder</span><span class="ph-t">Processing experience: returning user vs. new user</span></div></figure>
+        <figure class="fig"><img src="assets/media/vizard-5.jpg" alt="Processing experience: returning user vs. new user" loading="lazy"></figure>
       </section>
 
       <section id="refine" class="cs-sec">
@@ -184,7 +185,7 @@ ul.list li{margin:0 0 9px;color:#2a2a2a}
         <p class="chips">Remove silence · Add emojis · Change template · Apply enhancements</p>
         <p>Opening a full editor for these actions created unnecessary friction. I introduced a <strong>Quick AI Edit</strong> panel directly on the clip result page, allowing creators to refine a clip without leaving the review and publishing workflow.</p>
         <p><span class="flow">Review → Refine → Publish</span></p>
-        <figure class="fig ph"><div><span class="ph-k">Video placeholder</span><span class="ph-t">Video demo: Quick AI Edit panel on the clip result page</span></div></figure>
+        <figure class="fig"><img src="assets/media/vizard-6.png" alt="Quick AI Edit panel on the clip result page" loading="lazy"></figure>
       </section>
 
       <section id="business" class="cs-sec">
@@ -199,7 +200,6 @@ ul.list li{margin:0 0 9px;color:#2a2a2a}
         <p>From the user's perspective, this interaction felt natural. But every submission triggered another AI request. The interface was unintentionally encouraging behavior that increased model usage and processing cost.</p>
         <p>This changed the problem from a pure UX challenge into a product and business tradeoff:</p>
         <blockquote class="pull">How might we preserve creator control without encouraging unnecessary AI generations?</blockquote>
-        <figure class="fig ph"><div><span class="ph-k">Image placeholder</span><span class="ph-t">V1 behavior visualization: multiple edits triggering multiple AI requests</span></div></figure>
       </section>
 
       <section id="intent" class="cs-sec">
@@ -214,7 +214,7 @@ ul.list li{margin:0 0 9px;color:#2a2a2a}
         <p>A small interaction change created an important shift. The interface now encouraged users to communicate their full editing intent before asking AI to act — preserving flexibility for creators while reducing unnecessary model requests.</p>
         <p>It also gave product, engineering, and design a shared framework for evaluating the solution:</p>
         <p class="chips">User effort · Editing flexibility · AI cost</p>
-        <figure class="fig ph"><div><span class="ph-k">Image placeholder</span><span class="ph-t">V1 vs. V2 interaction comparison: repeated generations vs. batched intent</span></div></figure>
+        <figure class="fig"><img src="assets/media/vizard-7.png" alt="V1 vs. V2 interaction comparison: repeated generations vs. batched intent" loading="lazy"></figure>
       </section>
 
       <section id="impact" class="cs-sec">
@@ -239,7 +239,10 @@ ul.list li{margin:0 0 9px;color:#2a2a2a}
             </ul>
           </div>
         </div>
-        <figure class="fig ph"><div><span class="ph-k">Image placeholder</span><span class="ph-t">Final end-to-end redesigned workflow or before/after product experience</span></div></figure>
+        <div class="fig-stack">
+          <figure class="fig"><img src="assets/media/vizard-8A.png" alt="Redesigned end-to-end workflow, part 1" loading="lazy"></figure>
+          <figure class="fig"><img src="assets/media/vizard-8B.png" alt="Redesigned end-to-end workflow, part 2" loading="lazy"></figure>
+        </div>
       </section>
 
       <section id="takeaway" class="cs-sec">
