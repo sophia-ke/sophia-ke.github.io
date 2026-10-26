@@ -1,1 +1,20 @@
 .DS_Store
+# local backups & loose source images (not part of the site)
+*_backup.html
+/european design.jpg
+/london design.jpg
+/ny product.jpg
+/red dot*.jpeg
+/titan.jpg
+/mamaland.png
+/muse.png
+/wayfair.png
+/vizard-1.png
+/vizard-2.png
+/vizard-8.png
+# 3D scene sources (only the *.bundle.js files are loaded by the site)
+assets/vendor/journey3d*.js
+assets/vendor/three.module.min.js
+assets/vendor/OrbitControls.js
+assets/vendor/land.json
+assets/vendor/earth-*

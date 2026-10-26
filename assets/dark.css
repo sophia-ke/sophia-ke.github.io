@@ -1,0 +1,60 @@
+/* ---------- Night appearance (#1E1E1E / white) — applied when <html data-theme="dark"> ---------- */
+html{transition:background-color .6s ease}
+body,header.nav,.pillnav,.project-media,.card,.ft,.stepflow,.jpill,.jcard,.iso-stage,.browser,.browser-bar,.urlbar,.pm-year,.cs-main p,.bio,a,.sec-head h2,.toc a,.iso-btn{transition:background-color .6s ease,color .6s ease,border-color .6s ease}
+html[data-theme="dark"]{
+  --bg:#1E1E1E; --bg-soft:#262626;
+  --fg:#ffffff; --ink:#ffffff;
+  --muted:#a3a3a3; --faint:#7a7a7a;
+  --line:rgba(255,255,255,.16); --line-soft:rgba(255,255,255,.10);
+  --pill:#ffffff; --pill-bg:#ffffff; --pill-fg:#1E1E1E;
+  color-scheme:dark;
+}
+html[data-theme="dark"] body{background:#1E1E1E;color:#fff}
+/* nav */
+html[data-theme="dark"] header.nav{background:rgba(30,30,30,.85)}
+html[data-theme="dark"] .pillnav{background:rgba(255,255,255,.06)}
+html[data-theme="dark"] .brand img{filter:invert(1)}
+/* home */
+html[data-theme="dark"] .bio{color:#d6d6d6}
+html[data-theme="dark"] .project-media{background:#262626;border-color:var(--line-soft)}
+html[data-theme="dark"] .project-media.ph{background:linear-gradient(135deg,#2a2a2a,#222)}
+html[data-theme="dark"] .ph-label{color:rgba(255,255,255,.14)}
+html[data-theme="dark"] .arrow-badge{color:#111}
+html[data-theme="dark"] .socials a:hover img{filter:none}
+/* case studies */
+html[data-theme="dark"] .cs-main p{color:#d9d9d9}
+html[data-theme="dark"] .lead{color:#f2f2f2}
+html[data-theme="dark"] .card p{color:#cfcfcf}
+html[data-theme="dark"] ul.list li{color:#d4d4d4}
+html[data-theme="dark"] .ft.from,html[data-theme="dark"] .stepflow{background:#262626}
+html[data-theme="dark"] .ft.to{border-color:#fff}
+html[data-theme="dark"] .pull{border-left-color:#fff}
+html[data-theme="dark"] .cs-tagline{color:#cfcfcf}
+html[data-theme="dark"] .cs-meta .mk{color:#fff}
+html[data-theme="dark"] .ba-switch{background:#fff}
+html[data-theme="dark"] .ba-thumb{background:#1E1E1E}
+html[data-theme="dark"] .browser{border-color:rgba(255,255,255,.14);box-shadow:0 30px 80px -30px rgba(0,0,0,.7)}
+html[data-theme="dark"] .fig.ph{background:repeating-linear-gradient(45deg,#262626,#262626 14px,#222 14px,#222 28px);border-color:rgba(255,255,255,.22)}
+html[data-theme="dark"] .ph-t{color:#bbb}
+/* about */
+html[data-theme="dark"] .intro p{color:#d6d6d6}
+html[data-theme="dark"] .intro-photo{background:transparent}
+html[data-theme="dark"] .jpill{background:#262626;color:#fff;border-color:var(--line)}
+html[data-theme="dark"] .jpill .yr{color:var(--muted);border-right-color:rgba(255,255,255,.22)}
+html[data-theme="dark"] .jcard{background:#262626;color:#fff;border-color:var(--line);box-shadow:0 22px 50px rgba(0,0,0,.5)}
+html[data-theme="dark"] .jcard::before{background:#262626;border-color:var(--line)}
+html[data-theme="dark"] .jcard li{color:#d4d4d4}
+html[data-theme="dark"] .jstep.hot .jpill{box-shadow:0 0 0 2px #fff}
+html[data-theme="dark"] .iso-stage{background:#262626}
+html[data-theme="dark"] .iso-btn{background:#1E1E1E;color:#fff;border-color:var(--line)}
+html[data-theme="dark"] .iso-btn:hover{background:#fff;color:#1E1E1E}
+html[data-theme="dark"] .iso-tip{background:#fff;color:#1E1E1E}
+html[data-theme="dark"] .btns a.btn-primary{background:#fff;color:#1E1E1E;border-color:#fff}
+html[data-theme="dark"] .btns a.btn-primary:hover{opacity:.86;background:#fff;color:#1E1E1E}
+html[data-theme="dark"] .btns a.btn-secondary{background:transparent;color:#fff;border-color:rgba(255,255,255,.28)}
+html[data-theme="dark"] .btns a.btn-secondary:hover{border-color:#fff;color:#fff;background:transparent}
+html[data-theme="dark"] .award-row{border-color:var(--line-soft)}
+html[data-theme="dark"] .award-row::before{background:#fff}
+/* footer */
+html[data-theme="dark"] footer,html[data-theme="dark"] .cs-foot{border-color:var(--line-soft)}
+html[data-theme="dark"] .copyright,html[data-theme="dark"] .foot-inner{color:var(--muted)}

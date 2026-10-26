@@ -4,19 +4,28 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mamaland | Sophia Ke Portfolio</title>
-<link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="icon" id="favSvg" type="image/svg+xml" href="assets/favicon-light.svg">
+<link rel="icon" id="favPng" type="image/png" sizes="64x64" href="assets/favicon-light.png">
+<link rel="apple-touch-icon" id="favApple" href="assets/apple-touch-icon-light.png">
 <style>
+@font-face{font-family:"Continental";src:url("assets/fonts/TWKContinental-Regular.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Continental";src:url("assets/fonts/TWKContinental-Medium.woff2") format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Continental";src:url("assets/fonts/TWKContinental-Bold.woff2") format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"Lausanne";src:url("assets/fonts/TWKLausanne-300.woff2") format("woff2");font-weight:300;font-display:swap}
+@font-face{font-family:"Lausanne";src:url("assets/fonts/TWKLausanne-400.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Lausanne";src:url("assets/fonts/TWKLausanne-500.woff2") format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Lausanne";src:url("assets/fonts/TWKLausanne-600.woff2") format("woff2");font-weight:600;font-display:swap}
 @font-face{font-family:"Merriweather";src:url("assets/fonts/merriweather-700-latin.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
 @font-face{font-family:"Inclusive Sans";src:url("assets/fonts/inclusivesans-400-latin.woff2") format("woff2");font-weight:400;font-display:swap}
 @font-face{font-family:"Inclusive Sans";src:url("assets/fonts/inclusivesans-500-latin.woff2") format("woff2");font-weight:500;font-display:swap}
-:root{--bg:#fff;--ink:#0a0a0a;--muted:#6b6b6b;--faint:#9a9a9a;--line:rgba(0,0,0,.12);--line-soft:rgba(0,0,0,.08);--pill:#0a0a0a;--pill-fg:#fff;--serif:"Merriweather",Georgia,serif;--sans:"Inclusive Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+:root{--bg:#fff;--ink:#0a0a0a;--muted:#6b6b6b;--faint:#9a9a9a;--line:rgba(0,0,0,.12);--line-soft:rgba(0,0,0,.08);--pill:#0a0a0a;--pill-fg:#fff;--serif:"Continental","Merriweather",Georgia,serif;--sans:"Lausanne","Inclusive Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
 *{box-sizing:border-box}html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
-header.nav{position:sticky;top:0;z-index:50;padding:16px 0;background:rgba(255,255,255,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-soft)}
+header.nav{position:sticky;top:0;z-index:50;padding:24px 0 16px;background:rgba(255,255,255,.85);backdrop-filter:blur(10px);}
 .nav-inner{max-width:1180px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.brand{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:17px}
-.brand img{width:36px;height:36px;border-radius:50%;background:#0a0a0a;padding:6px}
+.brand{display:flex;align-items:center;gap:12px;font-family:var(--sans);font-weight:500;font-size:18px}
+.brand img{width:40px;height:40px;display:block}
 .pillnav{display:flex;gap:6px;background:rgba(0,0,0,.04);border:1px solid var(--line-soft);border-radius:999px;padding:6px}
 .pillnav a{padding:8px 18px;border-radius:999px;font-size:15px;color:var(--muted);transition:.2s}
 .pillnav a:hover{color:var(--ink)}.pillnav a.active{background:var(--pill);color:var(--pill-fg);font-weight:500}
@@ -79,11 +88,26 @@ ul.list li{margin:0 0 9px;color:#2a2a2a}
 .foot-inner a:hover{color:var(--ink)}
 @media (max-width:980px){.cs-wrap{grid-template-columns:1fr;gap:0}.toc{display:none}.brand span{display:none}.nav-spacer{display:none}}
 @media (max-width:720px){.cards-2,.cards-3{grid-template-columns:1fr}.twocol{grid-template-columns:1fr}.fig.ph,.hero-fig.ph{aspect-ratio:16/9}}
+.nav-inner{position:relative}
+.nav-inner .pillnav{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
+@media (max-width:980px){.nav-inner .pillnav{position:static;transform:none}}
+/* sliding nav indicator */
+.pillnav{position:relative}
+.pillnav a{position:relative;z-index:1;background:transparent!important;transition:color .25s ease}
+.pillnav .pill-ind{position:absolute;top:6px;left:0;width:0;height:calc(100% - 12px);border-radius:999px;background:var(--pill);z-index:0;opacity:0;
+  transition:left .38s cubic-bezier(.65,0,.35,1),width .38s cubic-bezier(.65,0,.35,1),opacity .2s ease}
+.pillnav.ready .pill-ind{opacity:1}
+.pillnav a.active,.pillnav a.ind-on{color:var(--pill-fg)}
+.pillnav.hovering a.active:not(.ind-on){color:var(--muted)}
 </style>
+<meta name="theme-color" content="#ffffff">
+<script src="assets/theme.js"></script>
+<link rel="stylesheet" href="assets/dark.css">
+
 </head>
 <body>
 
-<header class="nav"><div class="nav-inner"><a class="brand" href="index.html"><img src="assets/white-KE.png" alt="Sophia Ke"><span>Sophia&nbsp;Ke</span></a><nav class="pillnav"><a href="index.html" class="active">Work</a><a href="about.html">About</a><a href="assets/media/Yujia-Ke-Resume-2025.pdf" target="_blank" rel="noopener">Resume</a></nav><div class="nav-spacer"></div></div></header>
+<header class="nav"><div class="nav-inner"><a class="brand" href="index.html"><img src="assets/logo-sk.svg" alt="Sophia Ke"><span>Sophia&nbsp;Ke</span></a><nav class="pillnav"><a href="index.html" class="active">Work</a><a href="about.html">About</a><a href="assets/media/Yujia-Ke-Resume-2025.pdf" target="_blank" rel="noopener">Resume</a></nav><div class="nav-spacer"></div></div></header>
 
 <main class="cs">
   <header class="cs-head">
@@ -269,5 +293,32 @@ ul.list li{margin:0 0 9px;color:#2a2a2a}
 })();
 </script>
 
+<script>
+(function(){
+  var nav=document.querySelector('.pillnav');if(!nav)return;
+  var links=[].slice.call(nav.querySelectorAll('a'));
+  var ind=document.createElement('span');ind.className='pill-ind';nav.appendChild(ind);
+  var active=nav.querySelector('a.active')||links[0];
+  function place(a){ind.style.left=a.offsetLeft+'px';ind.style.width=a.offsetWidth+'px';}
+  function mark(a){links.forEach(function(l){l.classList.toggle('ind-on',l===a);});}
+  var prev=null;try{prev=sessionStorage.getItem('pillFrom');sessionStorage.removeItem('pillFrom');}catch(e){}
+  var from=prev!==null?links[+prev]:null;
+  ind.style.transition='none';place(from||active);
+  requestAnimationFrame(function(){requestAnimationFrame(function(){ind.style.transition='';nav.classList.add('ready');place(active);});});
+  links.forEach(function(a){
+    a.addEventListener('mouseenter',function(){nav.classList.add('hovering');mark(a);place(a);});
+    a.addEventListener('click',function(e){
+      if(a.target==='_blank'||a===active)return;
+      try{sessionStorage.setItem('pillFrom',String(links.indexOf(active)));}catch(err){}
+      if(e.metaKey||e.ctrlKey||e.shiftKey)return;
+      e.preventDefault();mark(a);place(a);
+      setTimeout(function(){location.href=a.href;},300);
+    });
+  });
+  nav.addEventListener('mouseleave',function(){nav.classList.remove('hovering');mark(null);place(active);});
+  window.addEventListener('resize',function(){ind.style.transition='none';place(active);requestAnimationFrame(function(){ind.style.transition='';});});
+})();
+</script>
+<script src="assets/track.js" defer data-endpoint="https://REPLACE.workers.dev"></script>
 </body>
 </html>
